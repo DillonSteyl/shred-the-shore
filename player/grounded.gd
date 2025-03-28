@@ -5,6 +5,12 @@ extends State
 @onready var player: Player = state_machine.player
 
 
+func enter() -> void:
+	if not player.is_node_ready():
+		await player.ready
+	player.model.animation_player.play("land")
+
+
 func active_physics_process(_delta: float) -> void:
 	if not state_machine.player.floor_cast.is_colliding():
 		state_machine.airbourne.initial_g = -player.get_real_velocity().y

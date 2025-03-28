@@ -3,6 +3,7 @@ extends Node3D
 
 @onready var front_left_wheel: MeshInstance3D = $%FrontLeftWheel
 @onready var front_right_wheel: MeshInstance3D = $%FrontRightWheel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var front_wheels: Array[MeshInstance3D] = [front_left_wheel, front_right_wheel]
 
