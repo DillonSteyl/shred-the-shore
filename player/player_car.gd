@@ -1,8 +1,8 @@
 class_name Player
 extends CharacterBody3D
 
-const VISUAL_ROTATION: float = deg_to_rad(15.0)
-const VISUAL_TILT: float = deg_to_rad(12.0)
+const VISUAL_ROTATION: float = deg_to_rad(25.0)
+const VISUAL_TILT: float = deg_to_rad(16.0)
 const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 
 @export var base_speed: float = 40.0
