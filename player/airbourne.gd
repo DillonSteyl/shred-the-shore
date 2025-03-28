@@ -2,8 +2,10 @@ class_name PlayerAirbourneState
 extends State
 
 const DOWN_GRAVITY_MULTIPLIER: float = 2.2
+const MINIMUM_DURATION_SCORE: float = 0.4
 
 var initial_g: float
+var t: float
 
 @onready var state_machine: PlayerStateMachine = get_parent() as PlayerStateMachine
 @onready var player: Player = state_machine.player
@@ -13,9 +15,16 @@ var initial_g: float
 
 func enter() -> void:
 	_gravity = initial_g
+	t = 0
+
+
+func exit() -> void:
+	if t > MINIMUM_DURATION_SCORE:
+		player.score_manager.add_jump(Utils.round_to_dec(t, 1))
 
 
 func active_physics_process(delta: float):
+	t += delta
 	if player.floor_cast.is_colliding():
 		state_machine.transition_to(state_machine.grounded)
 		return

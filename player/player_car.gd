@@ -12,12 +12,18 @@ const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 @onready var model: PlayerCarModel = $%PlayerCarModel
 @onready var floor_cast: RayCast3D = $%FloorCast
 @onready var state_machine: PlayerStateMachine = $%PlayerStateMachine
+@onready var score_manager: ScoreManager = $%ScoreManager
+@onready var ui: PlayerUI = $%PlayerUI
 
 # persistent movement vars
 @onready var _steer: float = 0.0
 
 # visual forward/back tilt
 @onready var _z_tilt: float = 0.0
+
+
+func _ready() -> void:
+	score_manager.score_changed.connect(ui.update_score)
 
 
 func _physics_process(delta: float) -> void:

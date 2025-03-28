@@ -69,7 +69,7 @@ mesh = SubResource("SphereMesh_ok4vg")
 skeleton = NodePath("../../MeshInstance3D")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.771047, 0.210978, -0.600812, 1.86265e-09, 0.943518, 0.331321, 0.636778, -0.255464, 0.727497, 0, 4.36424, 8.4208)
+transform = Transform3D(0.771047, 0.132241, -0.622896, 0, 0.978198, 0.207672, 0.636778, -0.160125, 0.754237, 0, 4.36424, 8.4208)
 light_color = Color(0.833661, 0.673434, 0.53449, 1)
 light_energy = 1.967
 shadow_enabled = true
