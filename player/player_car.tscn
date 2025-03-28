@@ -16,6 +16,7 @@ material = SubResource("StandardMaterial3D_hlo50")
 size = Vector3(1.8, 1, 3.22)
 
 [node name="PlayerCar" type="CharacterBody3D"]
+collision_layer = 2
 floor_stop_on_slope = false
 floor_constant_speed = true
 script = ExtResource("1_5fo77")

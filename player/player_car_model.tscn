@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dn62oo7wn1q4l"]
+
+[node name="PlayerCarModel" type="Node3D"]

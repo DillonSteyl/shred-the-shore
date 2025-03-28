@@ -5,7 +5,7 @@ const VISUAL_TILT: float = deg_to_rad(6.0)
 
 @export var base_speed: float = 40.0
 @export var strafe_speed: float = 35.0
-@export var strafe_lerp: float = 20.0
+@export var strafe_lerp: float = 8.0
 
 # refs
 @onready var model: Node3D = $Model
