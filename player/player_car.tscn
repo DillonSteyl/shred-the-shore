@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://biooo6u8iqfrf"]
+[gd_scene load_steps=7 format=3 uid="uid://biooo6u8iqfrf"]
 
 [ext_resource type="Script" uid="uid://dcm16qlvtuvew" path="res://player/player_car.gd" id="1_5fo77"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hlo50"]
 size = Vector3(2.60327, 1.48926, 3.26587)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fo77"]
+albedo_color = Color(0.230315, 0.230315, 0.230315, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_hlo50"]
+material = SubResource("StandardMaterial3D_5fo77")
 height = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hlo50"]

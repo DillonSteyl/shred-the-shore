@@ -1,19 +1,20 @@
 extends CharacterBody3D
 
-const VISUAL_ROTATION: float = deg_to_rad(7.0)
+const VISUAL_ROTATION: float = deg_to_rad(9.0)
 const VISUAL_TILT: float = deg_to_rad(6.0)
+const MAX_STEER_ANGLE: float = deg_to_rad(45.0)
 
 @export var base_speed: float = 40.0
-@export var strafe_speed: float = 35.0
-@export var strafe_lerp: float = 8.0
+@export var steer_lerp: float = 8.0
 
 # refs
 @onready var model: Node3D = $Model
 @onready var floor_cast: RayCast3D = $%FloorCast
 
 # persistent movement vars
-@onready var _strafe: float = 0.0
+@onready var _steer: float = 0.0
 @onready var _gravity: float = 0.0
+
 # visual forward/back tilt
 @onready var _z_tilt: float = 0.0
 
@@ -30,16 +31,17 @@ func _handle_movement(delta: float):
 		_gravity = 0.0
 
 	var movement = base_speed * Vector3.FORWARD
-	_strafe = lerp(_strafe, Input.get_axis("move_left", "move_right"), delta * strafe_lerp)
-	movement += _strafe * Vector3.RIGHT * strafe_speed
+	_steer = lerp(_steer, Input.get_axis("move_left", "move_right"), delta * steer_lerp)
+
+	movement = movement.rotated(Vector3.UP, -1 * _steer * MAX_STEER_ANGLE)
 
 	velocity = movement + Vector3.DOWN * _gravity
 	move_and_slide()
 
 
 func _apply_visual_rotation(delta) -> void:
-	var rot_angle = _strafe * VISUAL_ROTATION
-	var tilt_angle = _strafe * VISUAL_TILT
+	var rot_angle = _steer * VISUAL_ROTATION
+	var tilt_angle = _steer * VISUAL_TILT
 
 	var goal_z_tilt = 0.0
 	if floor_cast.is_colliding():
@@ -53,7 +55,7 @@ func _apply_visual_rotation(delta) -> void:
 
 	model.basis = (
 		basis
-		. rotated(Vector3.FORWARD, tilt_angle)
+		. rotated(Vector3.FORWARD, -tilt_angle)
 		. rotated(Vector3.UP, -rot_angle)
 		. rotated(Vector3.RIGHT, _z_tilt)
 	)
