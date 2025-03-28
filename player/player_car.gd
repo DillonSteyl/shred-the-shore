@@ -44,14 +44,13 @@ func _rotate_model(delta) -> void:
 	var rot_angle = _steer * VISUAL_ROTATION
 	var tilt_angle = _steer * VISUAL_TILT
 
-	var goal_z_tilt = 0.0
+	var goal_z_tilt = -deg_to_rad(20.0)
+	var z_tilt_lerp = 5.0
 	if floor_cast.is_colliding():
 		var floor_normal = floor_cast.get_collision_normal()
 		goal_z_tilt = floor_normal.signed_angle_to(Vector3.UP, Vector3.LEFT)
+		z_tilt_lerp = 15.0
 
-	var z_tilt_lerp = 15.0
-	if not is_on_floor():
-		z_tilt_lerp = 5.0
 	_z_tilt = lerp(_z_tilt, goal_z_tilt, delta * z_tilt_lerp)
 
 	model.basis = (
