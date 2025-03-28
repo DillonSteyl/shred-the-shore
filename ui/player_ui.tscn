@@ -11,16 +11,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cfom6")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 164.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 48
+text = "Score:"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="ScoreLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -143.0
-offset_right = 143.0
-offset_bottom = 81.0
-grow_horizontal = 2
+offset_top = 61.0
+offset_right = 159.0
+offset_bottom = 123.0
+theme_override_font_sizes/font_size = 32
 text = "0"
-horizontal_alignment = 1
-vertical_alignment = 2
+horizontal_alignment = 2
