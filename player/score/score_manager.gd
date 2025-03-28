@@ -2,6 +2,7 @@ class_name ScoreManager
 extends Node
 
 signal score_changed(new_score: int)
+signal score_event_triggered(name: String, score: int)
 
 const JUMP_POINTS_PER_SECOND: float = 100
 
@@ -11,7 +12,9 @@ const JUMP_POINTS_PER_SECOND: float = 100
 
 
 func add_jump(duration: float):
-	score += int(JUMP_POINTS_PER_SECOND * duration)
+	var points = int(JUMP_POINTS_PER_SECOND * duration)
+	score += points
+	score_event_triggered.emit("Air!", points)
 
 
 func _set_score(new_score: int):
