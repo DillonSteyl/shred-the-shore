@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8kcgccnkuabd"]
+
+[ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_5c6m7"]
+[ext_resource type="PackedScene" uid="uid://biooo6u8iqfrf" path="res://player/player_car.tscn" id="2_1xoix"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_1xoix"]
+left_to_right = 1.0
+size = Vector3(12.65, 5.565, 13.2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3or81"]
+data = PackedVector3Array(6.325, 2.7825, 6.6, 6.325, -2.7825, 6.6, -6.325, -2.7825, 6.6, 6.325, 2.7825, -6.6, -6.325, -2.7825, -6.6, 6.325, -2.7825, -6.6, 6.325, 2.7825, 6.6, 6.325, 2.7825, -6.6, 6.325, -2.7825, 6.6, 6.325, 2.7825, -6.6, 6.325, -2.7825, -6.6, 6.325, -2.7825, 6.6, 6.325, 2.7825, -6.6, 6.325, 2.7825, 6.6, -6.325, -2.7825, -6.6, 6.325, 2.7825, 6.6, -6.325, -2.7825, 6.6, -6.325, -2.7825, -6.6, -6.325, -2.7825, 6.6, 6.325, -2.7825, 6.6, -6.325, -2.7825, -6.6, 6.325, -2.7825, 6.6, 6.325, -2.7825, -6.6, -6.325, -2.7825, -6.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xoix"]
+albedo_color = Color(0.771829, 0.766596, 0.752363, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4gy6j"]
+material = SubResource("StandardMaterial3D_1xoix")
+size = Vector2(50, 3000)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1xoix"]
+data = PackedVector3Array(25, 0, 1500, -25, 0, 1500, 25, 0, -1500, -25, 0, 1500, -25, 0, -1500, 25, 0, -1500)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3or81"]
+albedo_color = Color(0.489622, 0.489622, 0.489622, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ok4vg"]
+material = SubResource("StandardMaterial3D_3or81")
+radial_segments = 8
+rings = 3
+
+[node name="TestDriving" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_5c6m7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.45048e-06, 2.58958, -84.7417)
+mesh = SubResource("PrismMesh_1xoix")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3or81")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12334, 0.0885105, -49.0579)
+mesh = SubResource("PlaneMesh_4gy6j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1xoix")
+
+[node name="Obstacles" type="Node3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Obstacles"]
+transform = Transform3D(4.55468, 0, 0, 0, 4.55468, 0, 0, 0, 4.55468, 2.90808, 0.0885105, -49.0579)
+mesh = SubResource("SphereMesh_ok4vg")
+skeleton = NodePath("../../MeshInstance3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Obstacles"]
+transform = Transform3D(4.55468, 0, 0, 0, 4.55468, 0, 0, 0, 4.55468, -10.6113, 0.0885105, -26.2447)
+mesh = SubResource("SphereMesh_ok4vg")
+skeleton = NodePath("../../MeshInstance3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Obstacles"]
+transform = Transform3D(4.55468, 0, 0, 0, 4.55468, 0, 0, 0, 4.55468, 8.2998, 0.0885105, -12.8564)
+mesh = SubResource("SphereMesh_ok4vg")
+skeleton = NodePath("../../MeshInstance3D")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Obstacles"]
+transform = Transform3D(4.55468, 0, 0, 0, 4.55468, 0, 0, 0, 4.55468, -19.9578, 0.0885105, -40.6685)
+mesh = SubResource("SphereMesh_ok4vg")
+skeleton = NodePath("../../MeshInstance3D")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Obstacles"]
+transform = Transform3D(4.55468, 0, 0, 0, 4.55468, 0, 0, 0, 4.55468, 12.4447, 0.0885105, -69.45)
+mesh = SubResource("SphereMesh_ok4vg")
+skeleton = NodePath("../../MeshInstance3D")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Obstacles"]
+transform = Transform3D(4.55468, 0, 0, 0, 4.55468, 0, 0, 0, 4.55468, -17.7746, 0.0885181, -81.3506)
+mesh = SubResource("SphereMesh_ok4vg")
+skeleton = NodePath("../../MeshInstance3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.771047, 0.210978, -0.600812, 1.86265e-09, 0.943518, 0.331321, 0.636778, -0.255464, 0.727497, 0, 4.36424, 8.4208)
+light_color = Color(0.833661, 0.673434, 0.53449, 1)
+light_energy = 1.967
+shadow_enabled = true
+
+[node name="PlayerCar" parent="." instance=ExtResource("2_1xoix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.57074, -1.24064)
