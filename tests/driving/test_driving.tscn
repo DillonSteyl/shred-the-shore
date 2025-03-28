@@ -85,3 +85,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -150)
 
 [node name="Ramp3" parent="." instance=ExtResource("3_3or81")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.391, 0, -211)
+
+[node name="Ramp4" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3716, 0, -255.438)
+
+[node name="Ramp5" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8064, 0, -313.132)
+
+[node name="Ramp6" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1858, 1.52588e-05, -378.872)
+
+[node name="Ramp7" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2488, 1.52588e-05, -440.102)
+
+[node name="Ramp8" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59219, 3.05176e-05, -493.526)
+
+[node name="Ramp9" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2065, 3.05176e-05, -533.209)
+
+[node name="Ramp10" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2689, -0.12937, -589.39)
+
+[node name="Ramp11" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.031, -0.129362, -613.074)
+
+[node name="Ramp12" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.14917, -0.129362, -654.458)
+
+[node name="Ramp13" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.80072, -0.129362, -701.079)
+
+[node name="Ramp14" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53997, -0.129362, -748.709)
+
+[node name="Ramp15" parent="." instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5653, -0.129362, -794.636)

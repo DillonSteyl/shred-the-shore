@@ -25,6 +25,8 @@ const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 func _ready() -> void:
 	score_manager.score_changed.connect(ui.update_score)
 	score_manager.score_event_triggered.connect(ui.score_event_ui.show_event)
+	score_manager.style_manager.style_changed.connect(ui.style_meter_ui.set_style)
+	score_manager.style_manager.bracket_changed.connect(ui.style_meter_ui.set_bracket)
 
 
 func _physics_process(delta: float) -> void:

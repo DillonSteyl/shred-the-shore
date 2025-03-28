@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2sdkxr55tup7"]
+
+[ext_resource type="Script" uid="uid://ba64xej66frmv" path="res://ui/player/style_meter_ui.gd" id="1_prat6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57a2m"]
+bg_color = Color(0.90344, 0.439735, 0.407481, 1)
+
+[node name="StyleMeterUI" type="Control"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_prat6")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -83.0
+offset_top = -118.358
+offset_right = -50.0
+offset_bottom = 151.642
+theme_override_styles/fill = SubResource("StyleBoxFlat_57a2m")
+fill_mode = 3
+show_percentage = false
+
+[node name="BracketLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -415.0
+offset_top = -86.3581
+offset_right = -117.0
+offset_bottom = -11.3581
+rotation = -0.146978
+theme_override_font_sizes/font_size = 52
+text = "Mellow"
+horizontal_alignment = 2
+
+[node name="MultiplierLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -180.0
+offset_top = -67.3581
+offset_right = -110.0
+offset_bottom = -9.35808
+rotation = -0.146978
+theme_override_colors/font_color = Color(0.793449, 0.426784, 0.350622, 1)
+theme_override_font_sizes/font_size = 40
+text = "x1.0"
+horizontal_alignment = 2
