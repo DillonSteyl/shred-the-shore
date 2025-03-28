@@ -1,4 +1,4 @@
-class_name PlayerAirbourneState
+class_name PlayerAirborneState
 extends State
 
 const DOWN_GRAVITY_MULTIPLIER: float = 2.2

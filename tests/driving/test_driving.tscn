@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b8kcgccnkuabd"]
 
 [ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_5c6m7"]
-[ext_resource type="PackedScene" uid="uid://biooo6u8iqfrf" path="res://player/player_car.tscn" id="2_1xoix"]
+[ext_resource type="PackedScene" uid="uid://biooo6u8iqfrf" path="res://player/player.tscn" id="2_1xoix"]
 [ext_resource type="PackedScene" uid="uid://e2vbbybcxjly" path="res://world/ramps/ramp.tscn" id="3_3or81"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xoix"]

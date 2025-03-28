@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://biooo6u8iqfrf"]
 
-[ext_resource type="Script" uid="uid://dcm16qlvtuvew" path="res://player/player_car.gd" id="1_5fo77"]
+[ext_resource type="Script" uid="uid://dcm16qlvtuvew" path="res://player/player.gd" id="1_5fo77"]
 [ext_resource type="PackedScene" uid="uid://dn62oo7wn1q4l" path="res://player/player_car_model.tscn" id="2_4y77r"]
-[ext_resource type="Script" uid="uid://blxhak8rlu2mn" path="res://player/state_machine.gd" id="3_6a325"]
+[ext_resource type="Script" uid="uid://blxhak8rlu2mn" path="res://player/player_state_machine.gd" id="3_6a325"]
 [ext_resource type="Script" uid="uid://dk3kr2v4qh2et" path="res://player/grounded.gd" id="4_5d8l8"]
-[ext_resource type="Script" uid="uid://bpt2g4qp8nk7p" path="res://player/airbourne.gd" id="5_31pr3"]
+[ext_resource type="Script" uid="uid://bpt2g4qp8nk7p" path="res://player/airborne.gd" id="5_31pr3"]
 [ext_resource type="PackedScene" uid="uid://cdn784ajh1e7q" path="res://player/score/score_manager.tscn" id="6_31pr3"]
 [ext_resource type="PackedScene" uid="uid://umh8le0drjhi" path="res://ui/player_ui.tscn" id="7_av4sv"]
 
@@ -43,7 +43,7 @@ initial_state = NodePath("Grounded")
 [node name="Grounded" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("4_5d8l8")
 
-[node name="Airbourne" type="Node" parent="PlayerStateMachine"]
+[node name="Airborne" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("5_31pr3")
 
 [node name="ScoreManager" parent="." instance=ExtResource("6_31pr3")]

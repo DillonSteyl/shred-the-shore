@@ -4,4 +4,4 @@ extends StateMachine
 @export var player: Player
 
 @onready var grounded: PlayerGroundedState = $Grounded
-@onready var airbourne: PlayerAirbourneState = $Airbourne
+@onready var airborne: PlayerAirborneState = $Airborne

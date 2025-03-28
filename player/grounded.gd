@@ -13,8 +13,8 @@ func enter() -> void:
 
 func active_physics_process(_delta: float) -> void:
 	if not state_machine.player.floor_cast.is_colliding():
-		state_machine.airbourne.initial_g = -player.get_real_velocity().y
-		state_machine.transition_to(state_machine.airbourne)
+		state_machine.airborne.initial_g = -player.get_real_velocity().y
+		state_machine.transition_to(state_machine.airborne)
 		return
 
 	_handle_movement()
