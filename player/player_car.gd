@@ -1,14 +1,14 @@
 extends CharacterBody3D
 
-const VISUAL_ROTATION: float = deg_to_rad(9.0)
-const VISUAL_TILT: float = deg_to_rad(6.0)
-const MAX_STEER_ANGLE: float = deg_to_rad(45.0)
+const VISUAL_ROTATION: float = deg_to_rad(15.0)
+const VISUAL_TILT: float = deg_to_rad(12.0)
+const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 
 @export var base_speed: float = 40.0
-@export var steer_lerp: float = 8.0
+@export var steer_lerp: float = 4.0
 
 # refs
-@onready var model: Node3D = $Model
+@onready var model: PlayerCarModel = $%PlayerCarModel
 @onready var floor_cast: RayCast3D = $%FloorCast
 
 # persistent movement vars
@@ -21,7 +21,8 @@ const MAX_STEER_ANGLE: float = deg_to_rad(45.0)
 
 func _physics_process(delta: float) -> void:
 	_handle_movement(delta)
-	_apply_visual_rotation(delta)
+	_rotate_model(delta)
+	model.rotate_wheels(velocity)
 
 
 func _handle_movement(delta: float):
@@ -39,7 +40,7 @@ func _handle_movement(delta: float):
 	move_and_slide()
 
 
-func _apply_visual_rotation(delta) -> void:
+func _rotate_model(delta) -> void:
 	var rot_angle = _steer * VISUAL_ROTATION
 	var tilt_angle = _steer * VISUAL_TILT
 
