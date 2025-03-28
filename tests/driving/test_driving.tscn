@@ -75,7 +75,7 @@ light_energy = 1.967
 shadow_enabled = true
 
 [node name="PlayerCar" parent="." instance=ExtResource("2_1xoix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.57074, -1.24064)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57074, -1.24064)
 
 [node name="Ramp" parent="." instance=ExtResource("3_3or81")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -83)
