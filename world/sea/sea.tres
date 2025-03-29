@@ -42,4 +42,4 @@ shader_parameter/normalmap_a_strength = 0.3
 shader_parameter/normalmap_b_strength = 0.4
 shader_parameter/uv_sampler_scale = 0.3
 shader_parameter/noise_scale = 0.2
-shader_parameter/height_strength = 1.295
+shader_parameter/height_strength = 2.0

@@ -1,0 +1,115 @@
+[gd_scene load_steps=19 format=3 uid="uid://c0d3ikyyc2i6k"]
+
+[ext_resource type="Script" uid="uid://dpye77nn7g22q" path="res://common/effects/explosion.gd" id="1_brjsq"]
+[ext_resource type="Texture2D" uid="uid://bliemb63ej856" path="res://common/assets/images/circle_05.png" id="1_t7jqw"]
+[ext_resource type="PackedScene" uid="uid://lts73oaba3r0" path="res://player/model/player_car_model.tscn" id="3_42enx"]
+
+[sub_resource type="Gradient" id="Gradient_b2ee8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1b3n7"]
+gradient = SubResource("Gradient_b2ee8")
+
+[sub_resource type="Curve" id="Curve_t7jqw"]
+_data = [Vector2(0, 0.291982), 0.0, 0.0, 0, 0, Vector2(0.222628, 1), 0.0, 0.0, 0, 0, Vector2(0.551095, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_brjsq"]
+curve = SubResource("Curve_t7jqw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_brjsq"]
+lifetime_randomness = 0.7
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 25.0
+initial_velocity_max = 45.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_brjsq")
+color_ramp = SubResource("GradientTexture1D_1b3n7")
+hue_variation_min = -0.05
+hue_variation_max = 0.37
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42enx"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(3, 0.6, 0, 1)
+albedo_texture = ExtResource("1_t7jqw")
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_b2ee8"]
+material = SubResource("StandardMaterial3D_42enx")
+size = Vector2(0.8, 5)
+
+[sub_resource type="Gradient" id="Gradient_42enx"]
+offsets = PackedFloat32Array(0.350806, 0.854839)
+colors = PackedColorArray(1, 1, 1, 1, 0.169245, 0.169245, 0.169245, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b2ee8"]
+gradient = SubResource("Gradient_42enx")
+
+[sub_resource type="Curve" id="Curve_42enx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_b2ee8"]
+curve = SubResource("Curve_42enx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1b3n7"]
+lifetime_randomness = 0.64
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.4
+scale_curve = SubResource("CurveTexture_b2ee8")
+color_ramp = SubResource("GradientTexture1D_b2ee8")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k306t"]
+load_path = "res://.godot/imported/circle_05.png-b6ea25775559a6693ea64723a046e5f0.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jndty"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(3, 0.6, 0, 1)
+albedo_texture = SubResource("CompressedTexture2D_k306t")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_sdmu3"]
+material = SubResource("StandardMaterial3D_jndty")
+size = Vector2(13, 13)
+
+[node name="Explosion" type="Node3D"]
+script = ExtResource("1_brjsq")
+
+[node name="Sparks" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 25
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.95
+fixed_fps = 60
+visibility_aabb = AABB(-19.1597, -15.2772, -20.03, 33.4281, 35.8545, 37.7683)
+process_material = SubResource("ParticleProcessMaterial_brjsq")
+draw_pass_1 = SubResource("QuadMesh_b2ee8")
+
+[node name="Flash" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 24
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.95
+fixed_fps = 60
+visibility_aabb = AABB(-15.1941, -15.2767, -15.4955, 30.3802, 29.3422, 30.4575)
+process_material = SubResource("ParticleProcessMaterial_1b3n7")
+draw_pass_1 = SubResource("QuadMesh_sdmu3")
+
+[node name="PlayerCarModel" parent="." instance=ExtResource("3_42enx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11279, -0.567447)
+visible = false

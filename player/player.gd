@@ -7,6 +7,7 @@ const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 
 @export var base_speed: float = 40.0
 @export var steer_lerp: float = 4.0
+@export var explosion_scene: PackedScene
 
 # refs
 @onready var model: PlayerCarModel = $%PlayerCarModel
@@ -32,6 +33,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_rotate_model(delta)
 	model.rotate_wheels(velocity)
+
+
+func die():
+	var explosion = explosion_scene.instantiate()
+	add_child(explosion)
+	state_machine.transition_to(state_machine.dead)
+	model.visible = false
 
 
 func _rotate_model(delta) -> void:

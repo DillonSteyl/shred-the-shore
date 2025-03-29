@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg5fgxgerfi3c"]
+
+[ext_resource type="Script" uid="uid://e4pbymf5axqa" path="res://world/obstacles/obstacle.gd" id="1_6tcv8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3or81"]
+albedo_color = Color(0.340339, 0.340339, 0.340339, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_p3tvw"]
+material = SubResource("StandardMaterial3D_3or81")
+radial_segments = 8
+rings = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p3tvw"]
+size = Vector3(4, 4, 4)
+
+[node name="Rock" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_6tcv8")
+
+[node name="MeshInstance" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.76382, 0, 0, 0, 5.76382, 0, 0, 0, 5.76382, 0, 0, 0)
+mesh = SubResource("SphereMesh_p3tvw")
+skeleton = NodePath("../../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_p3tvw")

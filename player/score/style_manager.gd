@@ -26,8 +26,8 @@ class StyleBracket:
 
 @onready var style_brackets: Array[StyleBracket] = [
 	StyleBracket.new("Mellow", 0, 1.0),
-	StyleBracket.new("Slick", 10, 1.2),
-	StyleBracket.new("Clean!", 20, 1.5),
+	StyleBracket.new("Clean", 10, 1.2),
+	StyleBracket.new("Slick!", 20, 1.5),
 	StyleBracket.new("Gnarly!", 40, 2.0),
 	StyleBracket.new("Radical!!", 80, 2.5),
 	StyleBracket.new("Astonishing!!!", 95, 3.0),

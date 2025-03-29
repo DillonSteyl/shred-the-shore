@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://biooo6u8iqfrf"]
+[gd_scene load_steps=11 format=3 uid="uid://biooo6u8iqfrf"]
 
 [ext_resource type="Script" uid="uid://dcm16qlvtuvew" path="res://player/player.gd" id="1_5fo77"]
+[ext_resource type="PackedScene" uid="uid://c0d3ikyyc2i6k" path="res://common/effects/explosion.tscn" id="2_rgyib"]
 [ext_resource type="Script" uid="uid://blxhak8rlu2mn" path="res://player/player_state_machine.gd" id="3_6a325"]
 [ext_resource type="Script" uid="uid://dk3kr2v4qh2et" path="res://player/grounded.gd" id="4_5d8l8"]
 [ext_resource type="Script" uid="uid://bpt2g4qp8nk7p" path="res://player/airborne.gd" id="5_31pr3"]
 [ext_resource type="PackedScene" uid="uid://cdn784ajh1e7q" path="res://player/score/score_manager.tscn" id="6_31pr3"]
 [ext_resource type="PackedScene" uid="uid://umh8le0drjhi" path="res://ui/player/player_ui.tscn" id="7_av4sv"]
+[ext_resource type="Script" uid="uid://bstai1nhxfehp" path="res://player/dead.gd" id="7_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://lts73oaba3r0" path="res://player/model/player_car_model.tscn" id="8_rgyib"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hlo50"]
@@ -16,6 +18,7 @@ collision_layer = 2
 floor_stop_on_slope = false
 floor_constant_speed = true
 script = ExtResource("1_5fo77")
+explosion_scene = ExtResource("2_rgyib")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00573686, 0.390346, 0.0622413)
@@ -31,7 +34,7 @@ current = true
 
 [node name="FloorCast" type="RayCast3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00546897, -1.45733)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00546897, -1.40175)
 target_position = Vector3(0, -0.7, 0)
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("player")]
@@ -47,6 +50,10 @@ steer_lerp = 4.0
 [node name="Airborne" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("5_31pr3")
 steer_lerp = 2.0
+
+[node name="Dead" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("7_hg6s5")
+can_exit = false
 
 [node name="ScoreManager" parent="." instance=ExtResource("6_31pr3")]
 unique_name_in_owner = true

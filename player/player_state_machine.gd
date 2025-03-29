@@ -5,3 +5,4 @@ extends StateMachine
 
 @onready var grounded: PlayerGroundedState = $Grounded
 @onready var airborne: PlayerAirborneState = $Airborne
+@onready var dead: State = $Dead
