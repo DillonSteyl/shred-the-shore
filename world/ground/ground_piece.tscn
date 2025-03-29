@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbxg8r53rxrsm"]
+
+[ext_resource type="Material" uid="uid://cp8wli2r3ycfv" path="res://common/assets/materials/sand/sand.tres" id="1_p686j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xoix"]
+albedo_color = Color(0.771829, 0.766596, 0.752363, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dk3bq"]
+material = SubResource("StandardMaterial3D_1xoix")
+size = Vector2(300, 600)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p686j"]
+data = PackedVector3Array(150, 0, 300, -150, 0, 300, 150, 0, -300, -150, 0, 300, -150, 0, -300, 150, 0, -300)
+
+[node name="GroundPiece" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99863, 0.052336, 0, -0.052336, 0.99863, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_dk3bq")
+skeleton = NodePath("../WorldEnvironment")
+surface_material_override/0 = ExtResource("1_p686j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_p686j")

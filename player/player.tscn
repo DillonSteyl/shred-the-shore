@@ -11,17 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://lts73oaba3r0" path="res://player/model/player_car_model.tscn" id="8_rgyib"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hlo50"]
-size = Vector3(2.60327, 1.63745, 3.14139)
+size = Vector3(1.8772, 0.950989, 2.54322)
 
 [node name="PlayerCar" type="CharacterBody3D"]
 collision_layer = 2
-floor_stop_on_slope = false
 floor_constant_speed = true
+floor_snap_length = 0.4
 script = ExtResource("1_5fo77")
 explosion_scene = ExtResource("2_rgyib")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00573686, 0.390346, 0.0622413)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00573686, 0.110409, 0.0485653)
 shape = SubResource("BoxShape3D_hlo50")
 
 [node name="PlayerCarModel" parent="." instance=ExtResource("8_rgyib")]
@@ -29,13 +29,13 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.109548, -0.763366)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.864345, 0.5029, 0, -0.5029, 0.864345, 0, 15.2202, 18.1639)
+transform = Transform3D(1, 0, 0, 0, 0.91146, 0.411388, 0, -0.411388, 0.91146, 0, 6.25341, 7.96485)
 current = true
 
 [node name="FloorCast" type="RayCast3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00546897, -1.40175)
-target_position = Vector3(0, -0.7, 0)
+target_position = Vector3(0, -0.9, 0)
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("player")]
 unique_name_in_owner = true

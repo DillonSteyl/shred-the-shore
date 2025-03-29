@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpwnu4cvyxwpp"]
+[gd_scene load_steps=17 format=3 uid="uid://dpwnu4cvyxwpp"]
 
 [ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_a71je"]
 [ext_resource type="Script" uid="uid://rcdk4tx4prbo" path="res://world/infinite_level.gd" id="1_gqrty"]
@@ -10,12 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://e2vbbybcxjly" path="res://world/ramps/ramp.tscn" id="7_xqmu6"]
 [ext_resource type="Script" uid="uid://85ntwh888c0s" path="res://common/scripts/prop_placer.gd" id="8_gqrty"]
 [ext_resource type="PackedScene" uid="uid://bg5fgxgerfi3c" path="res://world/obstacles/rock.tscn" id="10_5sepa"]
+[ext_resource type="PackedScene" uid="uid://bbxg8r53rxrsm" path="res://world/ground/ground_piece.tscn" id="11_jrloa"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xoix"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drtfs"]
 albedo_color = Color(0.771829, 0.766596, 0.752363, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n1fx3"]
-material = SubResource("StandardMaterial3D_1xoix")
+material = SubResource("StandardMaterial3D_drtfs")
 size = Vector2(300, 3000)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_evff2"]
@@ -38,6 +39,7 @@ environment = ExtResource("1_a71je")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.999273, 0.0381262, 0, -0.0381262, 0.999273, 0, 0, 0, 1, 0, 0.089, -1417.44)
+visible = false
 mesh = SubResource("PlaneMesh_n1fx3")
 skeleton = NodePath("../WorldEnvironment")
 surface_material_override/0 = ExtResource("2_8pswc")
@@ -90,4 +92,14 @@ player = NodePath("../Player")
 starting_offset = 100.0
 min_distance = 10.0
 max_distance = 20.0
+metadata/_custom_type_script = "uid://85ntwh888c0s"
+
+[node name="GroundPlacer" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("8_gqrty")
+prop_scene = ExtResource("11_jrloa")
+player = NodePath("../Player")
+starting_offset = 0.0
+min_distance = 300.0
+max_distance = 300.0
+x_variation = 0.0
 metadata/_custom_type_script = "uid://85ntwh888c0s"
