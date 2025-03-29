@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c43oga216sc22"]
+
+[ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_5us1g"]
+[ext_resource type="PackedScene" uid="uid://bbxg8r53rxrsm" path="res://world/ground/ground_piece.tscn" id="1_jcmsv"]
+[ext_resource type="Material" uid="uid://t08bnwkhymv8" path="res://world/sea/sea.tres" id="3_c233w"]
+[ext_resource type="PackedScene" uid="uid://lts73oaba3r0" path="res://player/model/player_car_model.tscn" id="5_5nvjm"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_54hql"]
+material = ExtResource("3_c233w")
+size = Vector2(200, 300)
+subdivide_width = 500
+subdivide_depth = 500
+
+[node name="MainMenuScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_5us1g")
+
+[node name="GroundPiece" parent="." instance=ExtResource("1_jcmsv")]
+transform = Transform3D(1, 0, 0, 0, 0.99989, 0.0147999, 0, -0.0147999, 0.99989, 0, 0, 0)
+
+[node name="SeaMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.919554, 0, 0.392963, 0, 1, 0, -0.392963, 0, 0.919554, 52.5388, -1.64508, -29.7906)
+mesh = SubResource("PlaneMesh_54hql")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.952513, 0, -0.304499, 0, 1, 0, 0.304499, 0, 0.952513, -3.71719, 1.26796, 2.18448)
+fov = 39.2
+
+[node name="PlayerCarModel" parent="." instance=ExtResource("5_5nvjm")]
+transform = Transform3D(-0.605187, 0.0675303, 0.793214, 0.022129, 0.997438, -0.0680335, -0.795775, -0.02362, -0.605131, -1.24991, 0.355922, -2.93086)
+script = null
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.149078, 0.126451, -0.980707, -0.295222, 0.940864, 0.166191, 0.943726, 0.314302, -0.102931, 0, 0.952521, 0)
+light_color = Color(1, 0.591809, 0.387414, 1)
+shadow_enabled = true

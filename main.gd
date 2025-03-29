@@ -2,6 +2,7 @@ class_name Main
 extends Node
 
 @export var game_scene: PackedScene
+@export var main_menu_scene: PackedScene
 
 const MAIN_MENU_SCENE = preload("res://ui/main_menu/main_menu.tscn")
 
@@ -14,7 +15,7 @@ func _ready() -> void:
 
 
 func go_to_menu() -> void:
-	set_world(null)
+	set_world(main_menu_scene.instantiate())
 
 	var main_menu: MainMenu = MAIN_MENU_SCENE.instantiate()
 	set_ui(main_menu)

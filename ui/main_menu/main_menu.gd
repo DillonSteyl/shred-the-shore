@@ -1,7 +1,7 @@
 class_name MainMenu
 extends Control
 
-@onready var main_vbox: VBoxContainer = $VBoxContainer
+@onready var main: Control = $Main
 
 @onready var play_button: Button = $%PlayButton
 @onready var settings_button: Button = $%SettingsButton
@@ -21,11 +21,11 @@ func _ready() -> void:
 
 
 func show_settings() -> void:
-	main_vbox.hide()
+	main.hide()
 	settings_menu.open()
 
 
 func show_main() -> void:
 	settings_menu.hide()
 	animation_player.play("fade_in")
-	main_vbox.show()
+	main.show()
