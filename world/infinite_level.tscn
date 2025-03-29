@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpwnu4cvyxwpp"]
+[gd_scene load_steps=15 format=3 uid="uid://dpwnu4cvyxwpp"]
 
 [ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_a71je"]
+[ext_resource type="Script" uid="uid://rcdk4tx4prbo" path="res://world/infinite_level.gd" id="1_gqrty"]
 [ext_resource type="Material" uid="uid://cp8wli2r3ycfv" path="res://common/assets/materials/sand/sand.tres" id="2_8pswc"]
 [ext_resource type="PackedScene" uid="uid://biooo6u8iqfrf" path="res://player/player.tscn" id="3_n1fx3"]
 [ext_resource type="Script" uid="uid://cynteu8klxdge" path="res://world/sea/player_follow_z.gd" id="4_wiu8b"]
 [ext_resource type="Material" uid="uid://t08bnwkhymv8" path="res://world/sea/sea.tres" id="5_vw82g"]
 [ext_resource type="PackedScene" uid="uid://m5c2jcht3pbo" path="res://world/cliff/cliff.tscn" id="6_vw82g"]
 [ext_resource type="PackedScene" uid="uid://e2vbbybcxjly" path="res://world/ramps/ramp.tscn" id="7_xqmu6"]
+[ext_resource type="Script" uid="uid://85ntwh888c0s" path="res://common/scripts/prop_placer.gd" id="8_gqrty"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xoix"]
 albedo_color = Color(0.771829, 0.766596, 0.752363, 1)
@@ -28,6 +30,7 @@ subdivide_width = 500
 subdivide_depth = 500
 
 [node name="InfiniteLevel" type="Node3D"]
+script = ExtResource("1_gqrty")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_a71je")
@@ -50,10 +53,10 @@ light_color = Color(0.833661, 0.673434, 0.53449, 1)
 shadow_enabled = true
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3_n1fx3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27273, 0.57074, -1.24064)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51716, 0)
 
 [node name="BoundaryRight" type="StaticBody3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(0.999972, 0, -0.00750485, 0, 1, 0, 0.00750485, 0, 0.999972, 47.8385, -1.71161, -3.02773)
+transform = Transform3D(0.999972, 0, -0.00750485, 0, 1, 0, 0.00750485, 0, 0.999972, 50, -1.712, -3.028)
 script = ExtResource("4_wiu8b")
 player = NodePath("../Player")
 
@@ -68,8 +71,13 @@ script = ExtResource("4_wiu8b")
 player = NodePath("../Player")
 
 [node name="Cliff" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_vw82g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 1.61516, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 1.615, 0)
 player = NodePath("../Player")
 
-[node name="Ramp" parent="." instance=ExtResource("7_xqmu6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -59.3913)
+[node name="PropPlacer" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("8_gqrty")
+prop_scene = ExtResource("7_xqmu6")
+player = NodePath("../Player")
+min_distance = 20.0
+max_distance = 50.0
+metadata/_custom_type_script = "uid://85ntwh888c0s"

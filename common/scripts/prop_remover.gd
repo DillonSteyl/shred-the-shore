@@ -16,7 +16,6 @@ func _ready() -> void:
 
 	player = player_nodes[0]
 	prop = owner as Node3D
-	print(prop)
 
 
 func _physics_process(_delta: float) -> void:
