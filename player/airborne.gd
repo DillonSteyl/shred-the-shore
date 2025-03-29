@@ -20,7 +20,6 @@ func enter() -> void:
 	_gravity = initial_g
 	_speed = player.speed
 	t = 0
-	player.model.animation_player.play("trick")
 
 
 func exit() -> void:

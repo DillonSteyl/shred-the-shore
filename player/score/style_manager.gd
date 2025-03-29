@@ -38,10 +38,10 @@ class StyleBracket:
 
 @onready var style_brackets: Array[StyleBracket] = [
 	StyleBracket.new("Mellow", 0, 1.0),
-	StyleBracket.new("Clean", 10, 1.2, 40, 8),
-	StyleBracket.new("Slick!", 20, 1.5, 50, 9),
-	StyleBracket.new("Gnarly!", 40, 2.0, 60, 10),
-	StyleBracket.new("Radical!!", 80, 2.5, 70, 11),
+	StyleBracket.new("Clean", 5, 1.2, 40, 8),
+	StyleBracket.new("Slick!", 15, 1.5, 50, 9),
+	StyleBracket.new("Gnarly!", 30, 2.0, 60, 10),
+	StyleBracket.new("Radical!!", 60, 2.5, 70, 11),
 	StyleBracket.new("Astonishing!!!", 95, 3.0, 80, 12),
 ]
 @onready var style_brackets_descending: Array[StyleBracket] = []

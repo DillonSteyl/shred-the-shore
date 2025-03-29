@@ -29,6 +29,8 @@ const SPEED_INCREASE_DURATION: float = 120.0
 # visual forward/back tilt
 @onready var _z_tilt: float = 0.0
 
+# can trick??
+@onready var can_trick: bool = false
 @onready var boost_timer: Timer = Timer.new()
 
 
@@ -48,6 +50,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("jump") and can_trick:
+		model.animation_player.play("trick")
+		score_manager.trick()
+
 	speed = base_speed
 	if not boost_timer.is_stopped():
 		speed *= BOOST_MULTIPLIER
