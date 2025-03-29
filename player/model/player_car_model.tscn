@@ -43,7 +43,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.00906645, 0.0200626, 0), Vector3(0.00906645, 0.0276814, 1.11022e-16)]
+"values": [Vector3(0.00906645, 0.0200626, 0), Vector3(0.00906645, 0.0234508, 7.63278e-17)]
 }
 
 [sub_resource type="Animation" id="Animation_njqqf"]
@@ -59,7 +59,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.00906645, 0.0276814, 1.11022e-16), Vector3(0.00904479, 0.0168415, 9.46909e-13), Vector3(0.00906645, 0.0200626, 0), Vector3(0.00906645, 0.0200626, 0)]
+"values": [Vector3(0.00906645, 0.0234508, 7.63278e-17), Vector3(0.00920024, 0.0189403, 9.4691e-13), Vector3(0.00906645, 0.0200626, 0), Vector3(0.00906645, 0.0200626, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false

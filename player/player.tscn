@@ -19,7 +19,6 @@ size = Vector3(1.7, 0.345, 0.34)
 [node name="PlayerCar" type="CharacterBody3D"]
 collision_layer = 2
 floor_constant_speed = true
-floor_snap_length = 0.4
 script = ExtResource("1_5fo77")
 explosion_scene = ExtResource("2_rgyib")
 
