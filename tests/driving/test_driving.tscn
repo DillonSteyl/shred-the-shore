@@ -8,11 +8,11 @@
 [ext_resource type="Material" uid="uid://t08bnwkhymv8" path="res://world/sea/sea.tres" id="4_3nvjo"]
 [ext_resource type="Script" uid="uid://cynteu8klxdge" path="res://world/sea/player_follow_z.gd" id="5_3nvjo"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xoix"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgs46"]
 albedo_color = Color(0.771829, 0.766596, 0.752363, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4gy6j"]
-material = SubResource("StandardMaterial3D_1xoix")
+material = SubResource("StandardMaterial3D_fgs46")
 size = Vector2(300, 3000)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3or81"]

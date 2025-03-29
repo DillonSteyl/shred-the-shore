@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Settings="*res://common/scripts/settings.gd"
 
+[global_group]
+
+player=""
+
 [gui]
 
 theme/custom="uid://daokerupce7cs"

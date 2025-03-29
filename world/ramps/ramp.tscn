@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://e2vbbybcxjly"]
+[gd_scene load_steps=5 format=3 uid="uid://e2vbbybcxjly"]
 
 [ext_resource type="Material" uid="uid://cp8wli2r3ycfv" path="res://common/assets/materials/sand/sand.tres" id="1_bsouv"]
+[ext_resource type="Script" uid="uid://c7fk1xrrj7lkh" path="res://common/scripts/prop_remover.gd" id="2_cxy5i"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_7yqy5"]
 left_to_right = 1.0
@@ -21,3 +22,7 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7yqy5")
+
+[node name="PropRemover" type="Node" parent="."]
+script = ExtResource("2_cxy5i")
+metadata/_custom_type_script = "uid://c7fk1xrrj7lkh"

@@ -17,4 +17,4 @@ func set_style(new_style: float) -> void:
 
 func set_bracket(new_bracket: StyleManager.StyleBracket):
 	bracket_label.text = new_bracket.name
-	multiplier_label.text = "x{multiplier}".format({"multiplier": new_bracket.multiplier})
+	multiplier_label.text = "x {multiplier}".format({"multiplier": new_bracket.multiplier})

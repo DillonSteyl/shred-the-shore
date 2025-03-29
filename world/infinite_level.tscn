@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://dpwnu4cvyxwpp"]
+
+[ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_a71je"]
+[ext_resource type="Material" uid="uid://cp8wli2r3ycfv" path="res://common/assets/materials/sand/sand.tres" id="2_8pswc"]
+[ext_resource type="PackedScene" uid="uid://biooo6u8iqfrf" path="res://player/player.tscn" id="3_n1fx3"]
+[ext_resource type="Script" uid="uid://cynteu8klxdge" path="res://world/sea/player_follow_z.gd" id="4_wiu8b"]
+[ext_resource type="Material" uid="uid://t08bnwkhymv8" path="res://world/sea/sea.tres" id="5_vw82g"]
+[ext_resource type="PackedScene" uid="uid://m5c2jcht3pbo" path="res://world/cliff/cliff.tscn" id="6_vw82g"]
+[ext_resource type="PackedScene" uid="uid://e2vbbybcxjly" path="res://world/ramps/ramp.tscn" id="7_xqmu6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xoix"]
+albedo_color = Color(0.771829, 0.766596, 0.752363, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n1fx3"]
+material = SubResource("StandardMaterial3D_1xoix")
+size = Vector2(300, 3000)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_evff2"]
+data = PackedVector3Array(150, 0, 1500, -150, 0, 1500, 150, 0, -1500, -150, 0, 1500, -150, 0, -1500, 150, 0, -1500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqmu6"]
+size = Vector3(1, 30, 30)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gqrty"]
+material = ExtResource("5_vw82g")
+size = Vector2(200, 300)
+subdivide_width = 500
+subdivide_depth = 500
+
+[node name="InfiniteLevel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_a71je")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999273, 0.0381262, 0, -0.0381262, 0.999273, 0, 0, 0, 1, 0, 0.089, -1417.44)
+mesh = SubResource("PlaneMesh_n1fx3")
+skeleton = NodePath("../WorldEnvironment")
+surface_material_override/0 = ExtResource("2_8pswc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_evff2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.163205, -0.177679, 0.970461, 0.282638, 0.950842, 0.126554, -0.94524, 0.253635, 0.205401, 0, 4.36424, 8.4208)
+light_color = Color(0.833661, 0.673434, 0.53449, 1)
+shadow_enabled = true
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_n1fx3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27273, 0.57074, -1.24064)
+
+[node name="BoundaryRight" type="StaticBody3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(0.999972, 0, -0.00750485, 0, 1, 0, 0.00750485, 0, 0.999972, 47.8385, -1.71161, -3.02773)
+script = ExtResource("4_wiu8b")
+player = NodePath("../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoundaryRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54291, 12.3475, -0.0190811)
+shape = SubResource("BoxShape3D_xqmu6")
+
+[node name="SeaMesh" type="MeshInstance3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(0.999972, 0, -0.00750485, 0, 1, 0, 0.00750485, 0, 0.999972, 99.8669, -2.17585, -113.613)
+mesh = SubResource("PlaneMesh_gqrty")
+script = ExtResource("4_wiu8b")
+player = NodePath("../Player")
+
+[node name="Cliff" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_vw82g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 1.61516, 0)
+player = NodePath("../Player")
+
+[node name="Ramp" parent="." instance=ExtResource("7_xqmu6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -59.3913)
