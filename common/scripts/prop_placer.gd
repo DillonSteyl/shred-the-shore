@@ -11,6 +11,7 @@ const RAYCAST_ORIGIN_Y: float = 5.0
 @export var max_distance: float
 @export var x_variation: float = 48.0
 @export var randomize_y_rotation: bool = false
+@export var x_variations: Array[float] = []
 
 @onready var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 
@@ -32,10 +33,17 @@ func _should_spawn():
 
 
 func spawn_new_prop() -> void:
-	var prop_scene = prop_scenes[randi() % len(prop_scenes)]
+	var prop_index = randi() % len(prop_scenes)
+
+	var prop_scene = prop_scenes[prop_index]
 	var prop: Node3D = prop_scene.instantiate()
 	var z_offset = randf_range(min_distance, max_distance)
-	var x_offset = randf_range(-x_variation, x_variation)
+
+	var x_var = x_variation
+	if x_variations:
+		x_var = x_variations[prop_index]
+
+	var x_offset = randf_range(-x_var, x_var)
 
 	var y_offset = 0.0
 	var query = (
