@@ -3,7 +3,7 @@ extends Node3D
 
 const MIN_DISTANCE_COVERED: float = 250.0
 const RAYCAST_ORIGIN_Y: float = 5.0
-const FREQUENCY_CHANGE_DURATION: float = 10.0
+const FREQUENCY_CHANGE_DURATION: float = 120.0
 
 @export var prop_scenes: Array[PackedScene]
 @export var player: Player

@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqrdr4a76clql"]
+
+[ext_resource type="PackedScene" uid="uid://4tjntcnvs7af" path="res://world/destructibles/surfboards/surfboard_destructible.tscn" id="1_0wtb3"]
+
+[node name="SurfboardCluster1" type="Node3D"]
+
+[node name="SurfboardDestructible" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.97891, -0.128656, 0.158688, 0.120028, 0.990779, 0.0628487, -0.165311, -0.0424763, 0.985326, 0, 0, 5.68476)
+
+[node name="SurfboardDestructible2" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.985671, 0, 0.168679, 0, 1, 0, -0.168679, 0, 0.985671, 0.0448742, 0, 4.93631)
+
+[node name="SurfboardDestructible3" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.995618, 0.0436726, 0.0826936, -0.0425913, 0.998983, -0.0147963, -0.0832557, 0.0112094, 0.996465, -0.520985, 0, 4.04017)
+
+[node name="SurfboardDestructible4" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.911204, 0.00345893, 0.41194, -0.00302504, 0.999994, -0.00170531, -0.411944, 0.000307763, 0.911209, -1.40859, 0, 3.41145)
+
+[node name="SurfboardDestructible5" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.997359, -0.0567033, 0.0453893, 0.0567683, 0.998387, -0.000143579, -0.045308, 0.00271985, 0.998969, -2.22224, 0, 2.67177)
+
+[node name="SurfboardDestructible6" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.920968, 0, -0.389638, 0, 1, 0, 0.389638, 0, 0.920968, -2.92493, 0, 1.89511)
+
+[node name="SurfboardDestructible7" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.998225, -0.0464276, 0.0373098, 0.0473798, 0.998563, -0.0250535, -0.036093, 0.0267767, 0.99899, -2.40715, 0, 1.04449)
+
+[node name="SurfboardDestructible8" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.962725, 0, -0.270483, 0, 1, 0, 0.270483, 0, 0.962725, -1.55653, 0, 0.119898)
+
+[node name="SurfboardDestructible9" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.978002, 0.0442624, 0.203846, -0.0451692, 0.998979, -0.000204488, -0.203647, -0.00900758, 0.979003, -0.668919, 0, -0.619782)
+
+[node name="SurfboardDestructible10" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.84341, 0, -0.53727, 0, 1, 0, 0.53727, 0, 0.84341, 0.14472, 0, -1.50739)
+
+[node name="SurfboardDestructible11" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.768797, 0, -0.639493, 0, 1, 0, 0.639493, 0, 0.768797, 1.1063, 0, -2.17309)
+
+[node name="SurfboardDestructible12" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.974292, 0, 0.225291, 0, 1, 0, -0.225291, 0, 0.974292, 1.88296, 0, -3.0607)
+
+[node name="SurfboardDestructible13" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.996768, -0.0448973, -0.0666176, 0.0446389, 0.998989, -0.00536295, 0.066791, 0.00237188, 0.997764, 1.21725, 0, -3.80038)
+
+[node name="SurfboardDestructible14" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.999421, 0.0225342, -0.0254999, -0.0227776, 0.999697, -0.00929477, 0.0252827, 0.00987024, 0.999632, 0.329639, 0, -4.51824)
+
+[node name="SurfboardDestructible15" parent="." instance=ExtResource("1_0wtb3")]
+transform = Transform3D(0.988441, -0.124413, 0.0866328, 0.124816, 0.99218, 0.000776336, -0.0860519, 0.0100458, 0.99624, -0.0771832, 0, -5.27974)

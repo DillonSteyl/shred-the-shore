@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbp0xqykw5nim"]
+
+[ext_resource type="PackedScene" uid="uid://4tjntcnvs7af" path="res://world/destructibles/surfboards/surfboard_destructible.tscn" id="1_4ec06"]
+
+[node name="SurfboardCluster2" type="Node3D"]
+
+[node name="SurfboardDestructible" parent="." instance=ExtResource("1_4ec06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0848, 0, 1.64615)
+
+[node name="SurfboardDestructible2" parent="." instance=ExtResource("1_4ec06")]
+transform = Transform3D(0.999997, 0.000464682, 0.00234331, -0.000455202, 0.999992, -0.00404223, -0.00234517, 0.00404115, 0.999989, 0.680896, -0.473539, 0.933003)
+
+[node name="SurfboardDestructible3" parent="." instance=ExtResource("1_4ec06")]
+transform = Transform3D(0.998053, -0.0526998, 0.033359, 0.0531389, 0.99851, -0.0124134, -0.0326551, 0.0141619, 0.999366, -0.676716, 0, 0.823368)
+
+[node name="SurfboardDestructible4" parent="." instance=ExtResource("1_4ec06")]
+transform = Transform3D(0.992951, -0.0977, 0.0671003, 0.0971304, 0.995203, 0.0117067, -0.0679222, -0.00510672, 0.997678, -1.48635, -0.677685, 0.169258)
+
+[node name="SurfboardDestructible5" parent="." instance=ExtResource("1_4ec06")]
+transform = Transform3D(0.99965, -0.000841057, -0.0264296, 0.00225611, 0.998562, 0.0535554, 0.0263466, -0.0535963, 0.998215, 0.0483902, 0, 0.189398)
+
+[node name="SurfboardDestructible6" parent="." instance=ExtResource("1_4ec06")]
+transform = Transform3D(0.996725, 0.0714377, -0.0379047, -0.0711202, 0.997421, 0.00966184, 0.0384971, -0.00693441, 0.999235, 1.38812, -0.341548, -0.0452018)
+
+[node name="SurfboardDestructible7" parent="." instance=ExtResource("1_4ec06")]
+transform = Transform3D(0.9948, -0.0766132, 0.0671078, 0.0740884, 0.996475, 0.0393393, -0.0698851, -0.0341628, 0.99697, -1.05898, -0.172318, -0.832534)
+
+[node name="SurfboardDestructible8" parent="." instance=ExtResource("1_4ec06")]
+transform = Transform3D(0.999193, 0.0203019, -0.0346472, -0.0186916, 0.998758, 0.0461859, 0.0355418, -0.0455011, 0.998332, 0.580566, -0.106877, -1.28431)

@@ -20,6 +20,14 @@ func add_jump(duration: float):
 	score_event_triggered.emit("Air!", points, multiplier)
 
 
+func collide():
+	var points = 1
+	var multiplier = style_manager.current_bracket.multiplier
+	score += int(points * multiplier)
+	style_manager.style += POINTS_TO_STYLE_MODIFIER * score
+	score_event_triggered.emit("Destruction!", points, multiplier)
+
+
 func _set_score(new_score: int):
 	score_changed.emit(new_score)
 	score = new_score

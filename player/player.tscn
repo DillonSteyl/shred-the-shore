@@ -16,7 +16,7 @@ size = Vector3(1.8772, 0.950989, 2.54322)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hg6s5"]
 size = Vector3(1.7, 0.345, 0.34)
 
-[node name="PlayerCar" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
 floor_constant_speed = true
 script = ExtResource("1_5fo77")
