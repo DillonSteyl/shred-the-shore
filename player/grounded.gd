@@ -23,7 +23,7 @@ func active_physics_process(delta: float) -> void:
 
 
 func _handle_movement(delta: float):
-	var movement = player.base_speed * Vector3.FORWARD
+	var movement = player.speed * Vector3.FORWARD
 	player.steer = lerp(player.steer, Input.get_axis("move_left", "move_right"), delta * steer_lerp)
 	movement = movement.rotated(Vector3.UP, -1 * player.steer * player.MAX_STEER_ANGLE)
 	player.velocity = movement + Vector3.DOWN

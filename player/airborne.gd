@@ -13,10 +13,12 @@ var t: float
 @onready var player: Player = state_machine.player
 
 @onready var _gravity: float = 0.0
+@onready var _speed: float = 0.0
 
 
 func enter() -> void:
 	_gravity = initial_g
+	_speed = player.speed
 	t = 0
 	player.model.animation_player.play("air")
 
@@ -24,6 +26,7 @@ func enter() -> void:
 func exit() -> void:
 	if t > MINIMUM_DURATION_SCORE:
 		player.score_manager.add_jump(Utils.round_to_dec(t, 1))
+		player.boost()
 
 
 func active_physics_process(delta: float):
@@ -38,7 +41,7 @@ func active_physics_process(delta: float):
 
 	_gravity += gravity_increment
 
-	var movement = player.base_speed * Vector3.FORWARD
+	var movement = _speed * Vector3.FORWARD
 	player.steer = lerp(player.steer, Input.get_axis("move_left", "move_right"), delta * steer_lerp)
 	movement = movement.rotated(Vector3.UP, -1 * player.steer * player.MAX_STEER_ANGLE)
 	player.velocity = movement + _gravity * Vector3.DOWN

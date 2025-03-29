@@ -6,6 +6,8 @@ const VISUAL_TILT: float = deg_to_rad(16.0)
 const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 
 @export var base_speed: float = 40.0
+@export var boost_speed: float = 60.0
+@export var boost_wait_time: float = 2.0
 @export var steer_lerp: float = 4.0
 @export var explosion_scene: PackedScene
 
@@ -18,9 +20,12 @@ const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 
 # persistent movement vars
 @onready var steer: float = 0.0
+@onready var speed: float = base_speed
 
 # visual forward/back tilt
 @onready var _z_tilt: float = 0.0
+
+@onready var boost_timer: Timer = Timer.new()
 
 
 func _ready() -> void:
@@ -29,6 +34,11 @@ func _ready() -> void:
 	score_manager.style_manager.style_changed.connect(ui.style_meter_ui.set_style)
 	score_manager.style_manager.bracket_changed.connect(ui.style_meter_ui.set_bracket)
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+
+	add_child(boost_timer)
+	boost_timer.wait_time = boost_wait_time
+	boost_timer.one_shot = true
+	boost_timer.timeout.connect(_on_boost_timeout)
 
 
 func _physics_process(delta: float) -> void:
@@ -42,6 +52,15 @@ func die():
 	state_machine.transition_to(state_machine.dead)
 	model.visible = false
 	ui.show_game_over(score_manager.score)
+
+
+func boost():
+	boost_timer.start()
+	speed = boost_speed
+
+
+func _on_boost_timeout():
+	speed = base_speed
 
 
 func _rotate_model(delta) -> void:
