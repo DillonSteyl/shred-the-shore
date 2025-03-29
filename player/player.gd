@@ -4,9 +4,12 @@ extends CharacterBody3D
 const VISUAL_ROTATION: float = deg_to_rad(25.0)
 const VISUAL_TILT: float = deg_to_rad(16.0)
 const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
+const BOOST_MULTIPLIER: float = 1.0
 
-@export var base_speed: float = 40.0
-@export var boost_speed: float = 60.0
+@export var min_speed: float = 40.0
+@export var max_speed: float = 70.0
+@export var speed_increase_duration: float = 60.0
+
 @export var boost_wait_time: float = 2.0
 @export var steer_lerp: float = 4.0
 @export var explosion_scene: PackedScene
@@ -20,7 +23,8 @@ const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 
 # persistent movement vars
 @onready var steer: float = 0.0
-@onready var speed: float = base_speed
+@onready var base_speed: float = min_speed
+@onready var speed: float = min_speed
 
 # visual forward/back tilt
 @onready var _z_tilt: float = 0.0
@@ -38,10 +42,16 @@ func _ready() -> void:
 	add_child(boost_timer)
 	boost_timer.wait_time = boost_wait_time
 	boost_timer.one_shot = true
-	boost_timer.timeout.connect(_on_boost_timeout)
+
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "base_speed", max_speed, speed_increase_duration)
 
 
 func _physics_process(delta: float) -> void:
+	speed = base_speed
+	if not boost_timer.is_stopped():
+		speed *= BOOST_MULTIPLIER
+
 	_rotate_model(delta)
 	model.rotate_wheels(velocity)
 
@@ -56,11 +66,6 @@ func die():
 
 func boost():
 	boost_timer.start()
-	speed = boost_speed
-
-
-func _on_boost_timeout():
-	speed = base_speed
 
 
 func _rotate_model(delta) -> void:
