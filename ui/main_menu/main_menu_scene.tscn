@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c43oga216sc22"]
+[gd_scene load_steps=10 format=3 uid="uid://c43oga216sc22"]
 
 [ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_5us1g"]
 [ext_resource type="PackedScene" uid="uid://bbxg8r53rxrsm" path="res://world/ground/ground_piece.tscn" id="1_jcmsv"]
 [ext_resource type="Material" uid="uid://t08bnwkhymv8" path="res://world/sea/sea.tres" id="3_c233w"]
 [ext_resource type="PackedScene" uid="uid://lts73oaba3r0" path="res://player/model/player_car_model.tscn" id="5_5nvjm"]
+[ext_resource type="PackedScene" uid="uid://d2y11odh33sx5" path="res://common/assets/models/SM_Beachball.fbx" id="5_54hql"]
+[ext_resource type="PackedScene" uid="uid://dxhwsa8xqfc23" path="res://common/assets/models/SM_Esky.fbx" id="6_54hql"]
+[ext_resource type="PackedScene" uid="uid://cksammwmn0g27" path="res://common/assets/models/SM_Surfboard_03.fbx" id="8_7vo7t"]
+[ext_resource type="PackedScene" uid="uid://ddo4i04btc7b3" path="res://common/assets/models/SM_Surfboard_11.fbx" id="8_p1wiv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_54hql"]
 material = ExtResource("3_c233w")
@@ -17,7 +21,7 @@ subdivide_depth = 500
 environment = ExtResource("1_5us1g")
 
 [node name="GroundPiece" parent="." instance=ExtResource("1_jcmsv")]
-transform = Transform3D(1, 0, 0, 0, 0.99989, 0.0147999, 0, -0.0147999, 0.99989, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99989, 0.0147999, 0, -0.0147999, 0.99989, 0.0024004, 0.00506163, -0.00414062)
 
 [node name="SeaMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.919554, 0, 0.392963, 0, 1, 0, -0.392963, 0, 0.919554, 52.5388, -1.64508, -29.7906)
@@ -35,3 +39,15 @@ script = null
 transform = Transform3D(-0.149078, 0.126451, -0.980707, -0.295222, 0.940864, 0.166191, 0.943726, 0.314302, -0.102931, 0, 0.952521, 0)
 light_color = Color(1, 0.591809, 0.387414, 1)
 shadow_enabled = true
+
+[node name="SM_Beachball" parent="." instance=ExtResource("5_54hql")]
+transform = Transform3D(1.88073, -0.0502735, 0.76886, 0.188455, 1.99652, -0.330438, -0.747099, 0.377064, 1.85215, -2.14682, 0.0130067, -4.28922)
+
+[node name="SM_Esky" parent="." instance=ExtResource("6_54hql")]
+transform = Transform3D(1.20042, 0.0265157, 0.549265, -0.0211174, 1.32009, -0.0175752, -0.549499, 0.00719374, 1.20058, -2.82519, 0.0558321, -3.12489)
+
+[node name="SM_Surfboard_03" parent="." instance=ExtResource("8_7vo7t")]
+transform = Transform3D(0.898267, -0.0352878, 1.08547, 0.00876569, 1.40883, 0.0385462, -1.086, -0.0178162, 0.898133, 0.546422, -0.294966, -2.07993)
+
+[node name="SM_Surfboard_11" parent="." instance=ExtResource("8_p1wiv")]
+transform = Transform3D(1.12481, 0, 0.762643, 0, 1.35898, 0, -0.762643, 0, 1.12481, 0.136982, -0.2538, -1.36021)
