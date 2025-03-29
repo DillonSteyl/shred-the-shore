@@ -26,7 +26,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.109548, -0.763366)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.900857, 0.434116, 0, -0.434116, 0.900857, 0, 6.88132, 10.181)
+transform = Transform3D(1, 0, 0, 0, 0.820381, 0.571817, 0, -0.571817, 0.820381, 0, 10.093, 10.808)
 current = true
 
 [node name="FloorCast" type="RayCast3D" parent="."]

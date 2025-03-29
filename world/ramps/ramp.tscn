@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://e2vbbybcxjly"]
+[gd_scene load_steps=4 format=3 uid="uid://e2vbbybcxjly"]
+
+[ext_resource type="Material" uid="uid://cp8wli2r3ycfv" path="res://common/assets/materials/sand/sand.tres" id="1_bsouv"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_7yqy5"]
 left_to_right = 1.0
@@ -12,6 +14,7 @@ data = PackedVector3Array(6.5, 4, 6.5, 6.5, -4, 6.5, -6.5, -4, 6.5, 6.5, 4, -6.5
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, 0)
 mesh = SubResource("PrismMesh_7yqy5")
+surface_material_override/0 = ExtResource("1_bsouv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 collision_mask = 0

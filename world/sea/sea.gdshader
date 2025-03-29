@@ -35,7 +35,7 @@ void fragment() {
 	normalmap += texture(normalmap_b, uv - uv_movement).rgb * normalmap_b_strength;
 
 	ALBEDO = color.rgb;
-	ALPHA = 0.5;
+	ALPHA = 0.8;
 	ROUGHNESS = roughness;
 	NORMAL = normalmap;
 }

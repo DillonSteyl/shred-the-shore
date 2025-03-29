@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8kcgccnkuabd"]
+[gd_scene load_steps=14 format=3 uid="uid://b8kcgccnkuabd"]
 
 [ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_5c6m7"]
 [ext_resource type="PackedScene" uid="uid://biooo6u8iqfrf" path="res://player/player.tscn" id="2_1xoix"]
+[ext_resource type="Material" uid="uid://cp8wli2r3ycfv" path="res://common/assets/materials/sand/sand.tres" id="2_k6qjq"]
 [ext_resource type="PackedScene" uid="uid://e2vbbybcxjly" path="res://world/ramps/ramp.tscn" id="3_3or81"]
 [ext_resource type="Material" uid="uid://t08bnwkhymv8" path="res://world/sea/sea.tres" id="4_3nvjo"]
 [ext_resource type="Script" uid="uid://cynteu8klxdge" path="res://world/sea/sea_mesh.gd" id="5_3nvjo"]
@@ -30,6 +31,9 @@ size = Vector2(200, 300)
 subdivide_width = 500
 subdivide_depth = 500
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3nvjo"]
+size = Vector3(1, 100, 300)
+
 [node name="TestDriving" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -38,6 +42,7 @@ environment = ExtResource("1_5c6m7")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.999273, 0.0381262, 0, -0.0381262, 0.999273, 0, 0, 0, 1, 1.78438, 0.0885105, -49.0579)
 mesh = SubResource("PlaneMesh_4gy6j")
+surface_material_override/0 = ExtResource("2_k6qjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 collision_mask = 0
@@ -133,7 +138,14 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27273, 0.57074, -1.24064)
 
 [node name="SeaMesh" type="MeshInstance3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(0.999972, 0, -0.00750485, 0, 1, 0, 0.00750485, 0, 0.999972, 113.624, -2.21634, -113.613)
+transform = Transform3D(0.999972, 0, -0.00750485, 0, 1, 0, 0.00750485, 0, 0.999972, 99.8669, -1.71161, -113.613)
 mesh = SubResource("PlaneMesh_3or81")
 script = ExtResource("5_3nvjo")
 player = NodePath("../PlayerCar")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SeaMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.8605, 0, 0.531815)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeaMesh/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54291, 0, -0.0190811)
+shape = SubResource("BoxShape3D_3nvjo")
