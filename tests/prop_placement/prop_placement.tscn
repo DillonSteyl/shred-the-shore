@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://de2y3y62144r3"]
+
+[ext_resource type="Script" uid="uid://85ntwh888c0s" path="res://common/scripts/prop_placer.gd" id="1_d48fs"]
+[ext_resource type="PackedScene" uid="uid://dsua14vrwb7tm" path="res://world/ramps/sand_dune_jump.tscn" id="2_plt3y"]
+[ext_resource type="PackedScene" uid="uid://crncjv8iijcwg" path="res://world/obstacles/rock_dome.tscn" id="2_s0dib"]
+
+[node name="TestPropPlacement" type="Node3D"]
+
+[node name="PropPlacer" type="Node3D" parent="."]
+script = ExtResource("1_d48fs")
+prop_scenes = Array[PackedScene]([ExtResource("2_s0dib")])
+starting_offset = 0.0
+x_variation = 0.0
+align_y = true
+metadata/_custom_type_script = "uid://85ntwh888c0s"
+
+[node name="SandDuneJump" parent="." instance=ExtResource("2_plt3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11007, -3.12923, 0.377668)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.834608, 0, 0.550845, 0, 1, 0, -0.550845, 0, 0.834608, 13.0546, 1.90735e-06, 19.4561)

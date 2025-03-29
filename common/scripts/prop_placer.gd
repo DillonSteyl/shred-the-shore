@@ -20,6 +20,7 @@ const RAYCAST_ORIGIN_Y: float = 5.0
 
 
 func _ready() -> void:
+	spawn_new_prop()
 	while _should_spawn():
 		spawn_new_prop()
 
@@ -30,20 +31,23 @@ func _physics_process(_delta: float) -> void:
 
 
 func _should_spawn():
+	if not player:
+		return false
 	return _last_prop_z > player.global_position.z - MIN_DISTANCE_COVERED
 
 
-func _align_up(node_basis, normal):
+func _align_up(node_basis: Basis, normal: Vector3):
 	var result = Basis()
+	var basis_scale = node_basis.get_scale()
 
 	result.x = normal.cross(node_basis.z)
 	result.y = normal
 	result.z = node_basis.x.cross(normal)
 
 	result = result.orthonormalized()
-	# result.x *= scale.x
-	# result.y *= scale.y
-	# result.z *= scale.z
+	result.x *= basis_scale.x
+	result.y *= basis_scale.y
+	result.z *= basis_scale.z
 
 	return result
 
