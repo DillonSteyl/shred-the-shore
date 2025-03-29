@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://m5c2jcht3pbo"]
 
 [ext_resource type="Script" uid="uid://bmm77aolisw8j" path="res://world/cliff/cliff.gd" id="1_060fp"]
-[ext_resource type="PackedScene" uid="uid://8g4h58kwgjdu" path="res://world/cliff/cliff_model.tscn" id="2_jn8m1"]
+[ext_resource type="PackedScene" uid="uid://borxviss3g54g" path="res://world/cliff/cliff_model_1.tscn" id="2_jn8m1"]
 
 [node name="Cliff" type="Node3D"]
 script = ExtResource("1_060fp")

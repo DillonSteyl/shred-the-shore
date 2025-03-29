@@ -2,7 +2,7 @@ class_name Cliff
 extends Node3D
 
 const GOAL_NUM_CLIFFS: int = 15
-const CLIFF_WIDTH: float = 30.0
+const CLIFF_WIDTH: float = 60.0
 const SPAWN_DISTANCE_THRESHOLD: float = 200.0
 
 @export var cliff_scene: PackedScene
