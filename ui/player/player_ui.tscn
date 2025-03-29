@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://umh8le0drjhi"]
+[gd_scene load_steps=5 format=3 uid="uid://umh8le0drjhi"]
 
 [ext_resource type="Script" uid="uid://ui8eg11lbj73" path="res://ui/player/player_ui.gd" id="1_cfom6"]
 [ext_resource type="PackedScene" uid="uid://42py47hjlyp" path="res://ui/player/score_event_ui.tscn" id="2_5myn5"]
 [ext_resource type="PackedScene" uid="uid://d2sdkxr55tup7" path="res://ui/player/style_meter_ui.tscn" id="3_g5tbx"]
+[ext_resource type="PackedScene" uid="uid://d2t6i6sn6u21y" path="res://ui/game_over/game_over_ui.tscn" id="4_7n80m"]
 
 [node name="PlayerUI" type="Control"]
 layout_mode = 3
@@ -13,16 +14,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cfom6")
 
-[node name="Label" type="Label" parent="."]
+[node name="HUD" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HUD"]
 layout_mode = 0
 offset_right = 164.0
-offset_bottom = 68.0
+offset_bottom = 70.0
 theme_override_font_sizes/font_size = 48
 text = "Score:"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="HUD"]
 unique_name_in_owner = true
 layout_mode = 1
 offset_top = 61.0
@@ -32,10 +41,16 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 2
 
-[node name="ScoreEvent" parent="." instance=ExtResource("2_5myn5")]
+[node name="ScoreEvent" parent="HUD" instance=ExtResource("2_5myn5")]
+unique_name_in_owner = true
 layout_mode = 1
 offset_top = -100.0
 offset_bottom = 100.0
 
-[node name="StyleMeterUI" parent="." instance=ExtResource("3_g5tbx")]
+[node name="StyleMeterUI" parent="HUD" instance=ExtResource("3_g5tbx")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="GameOverUI" parent="." instance=ExtResource("4_7n80m")]
+visible = false
 layout_mode = 1

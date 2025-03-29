@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3gv7jt4uspgh"]
+[gd_scene load_steps=3 format=3 uid="uid://b3gv7jt4uspgh"]
 
 [ext_resource type="Script" uid="uid://ds3vbd3q4v2ih" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b8kcgccnkuabd" path="res://tests/driving/test_driving.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
+game_scene = ExtResource("2_0xm2m")
 
 [node name="World" type="Node3D" parent="."]
 
@@ -14,3 +16,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1

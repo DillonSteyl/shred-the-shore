@@ -28,6 +28,7 @@ func _ready() -> void:
 	score_manager.score_event_triggered.connect(ui.score_event_ui.show_event)
 	score_manager.style_manager.style_changed.connect(ui.style_meter_ui.set_style)
 	score_manager.style_manager.bracket_changed.connect(ui.style_meter_ui.set_bracket)
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 func _physics_process(delta: float) -> void:
@@ -40,6 +41,7 @@ func die():
 	add_child(explosion)
 	state_machine.transition_to(state_machine.dead)
 	model.visible = false
+	ui.show_game_over(score_manager.score)
 
 
 func _rotate_model(delta) -> void:
