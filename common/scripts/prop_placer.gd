@@ -1,8 +1,8 @@
 class_name PropPlacer
 extends Node3D
 
-const MIN_DISTANCE_COVERED: float = 150.0
-const RAYCAST_ORIGIN_Y: float = 10.0
+const MIN_DISTANCE_COVERED: float = 250.0
+const RAYCAST_ORIGIN_Y: float = 5.0
 
 @export var prop_scene: PackedScene
 @export var player: Player
@@ -39,9 +39,8 @@ func spawn_new_prop() -> void:
 	var query = (
 		PhysicsRayQueryParameters3D
 		. create(
-			Vector3(x_offset, RAYCAST_ORIGIN_Y, z_offset),
-			Vector3(x_offset, -RAYCAST_ORIGIN_Y, z_offset),
-			1,
+			Vector3(x_offset, RAYCAST_ORIGIN_Y, _last_prop_z - z_offset),
+			Vector3(x_offset, -100.0, _last_prop_z - z_offset),
 		)
 	)
 	var result = space_state.intersect_ray(query)
