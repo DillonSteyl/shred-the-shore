@@ -41,6 +41,13 @@ func set_world(world_node: Node3D) -> void:
 func play_game() -> void:
 	set_ui(null)
 	set_world(null)
+
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+
 	ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	var game_world = game_scene.instantiate()

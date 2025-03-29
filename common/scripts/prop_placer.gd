@@ -6,13 +6,14 @@ const RAYCAST_ORIGIN_Y: float = 10.0
 
 @export var prop_scene: PackedScene
 @export var player: Player
+@export var starting_offset: float = 10.0
 @export var min_distance: float
 @export var max_distance: float
 @export var x_variation: float = 48.0
 
-var _last_prop_z: float = 0.0
-
 @onready var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+
+@onready var _last_prop_z: float = -starting_offset
 
 
 func _ready() -> void:

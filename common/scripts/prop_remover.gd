@@ -19,5 +19,5 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if prop.global_position.z > player.global_position.z + OFFSET:
+	if is_instance_valid(prop) and prop.global_position.z > player.global_position.z + OFFSET:
 		prop.queue_free()
