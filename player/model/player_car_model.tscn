@@ -1,18 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://lts73oaba3r0"]
+[gd_scene load_steps=7 format=3 uid="uid://lts73oaba3r0"]
 
 [ext_resource type="PackedScene" uid="uid://dtupqeeaq1p41" path="res://common/assets/models/Jeep_FBX.fbx" id="1_w3lw7"]
 [ext_resource type="Script" uid="uid://bt4lp7dw4lpe3" path="res://player/model/player_car_model.gd" id="2_njyqk"]
-[ext_resource type="Material" uid="uid://dignfabtahc1v" path="res://player/model/tire.tres" id="3_njyqk"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njyqk"]
-albedo_color = Color(1, 0.31, 0.31, 1)
 
 [sub_resource type="Animation" id="Animation_njyqk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Jeep_Initial/Jeep_Initial_Beachball_01:position")
+tracks/0/path = NodePath("Jeep_Import/SM_Jeep:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +20,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Jeep_Initial/Jeep_Initial_Beachball_01:rotation")
+tracks/1/path = NodePath("Jeep_Import/SM_Jeep:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -34,13 +30,29 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_6h3w1"]
+resource_name = "air"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jeep_Import/SM_Jeep:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.00906645, 0.0200626, 0), Vector3(0.00906645, 0.0276814, 1.11022e-16)]
+}
+
 [sub_resource type="Animation" id="Animation_njqqf"]
 resource_name = "land"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Jeep_Initial/Jeep_Initial_Beachball_01:position")
+tracks/0/path = NodePath("Jeep_Import/SM_Jeep:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,7 +64,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Jeep_Initial/Jeep_Initial_Beachball_01:rotation")
+tracks/1/path = NodePath("Jeep_Import/SM_Jeep:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -60,22 +72,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0739322), Vector3(0, 0, 0.113551), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_6h3w1"]
-resource_name = "air"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Jeep_Initial/Jeep_Initial_Beachball_01:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.00906645, 0.0200626, 0), Vector3(0.00906645, 0.0276814, 1.11022e-16)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g54u0"]
@@ -87,33 +83,26 @@ _data = {
 
 [node name="PlayerCarModel" node_paths=PackedStringArray("front_left_wheel", "front_right_wheel") instance=ExtResource("1_w3lw7")]
 script = ExtResource("2_njyqk")
-front_left_wheel = NodePath("Jeep_Initial/Wheel_02")
-front_right_wheel = NodePath("Jeep_Initial/Wheel_04")
+front_left_wheel = NodePath("Jeep_Import/Wheel_01")
+front_right_wheel = NodePath("Jeep_Import/Wheel_03")
 
-[node name="Jeep_Initial" parent="." index="0"]
-transform = Transform3D(-1.18021e-06, 0, -27, 0, 27, 0, 27, 0, -1.18021e-06, -3.44583e-08, 0.128355, 0.811998)
+[node name="Jeep_Import" parent="." index="0"]
+transform = Transform3D(-1.18021e-06, 0, -27, 0, 27, 0, 27, 0, -1.18021e-06, 0, -0.315906, 0.0577875)
 
-[node name="Wheel_01" parent="Jeep_Initial" index="0"]
-transform = Transform3D(1.15485, -7.10543e-15, 0.478354, 0.478354, 0, -1.15485, 0, 0.75, 3.55271e-15, 0.035, -0.005, 0.03)
-surface_material_override/0 = ExtResource("3_njyqk")
+[node name="Wheel_01" parent="Jeep_Import" index="0"]
+transform = Transform3D(1.15485, -7.10543e-15, 0.478354, 0.478354, 0, -1.15485, 0, 0.75, 7.10543e-15, -0.00577904, 0.0114792, 0.03)
 
-[node name="Wheel_02" parent="Jeep_Initial" index="1"]
-unique_name_in_owner = true
-transform = Transform3D(1.15485, -7.10543e-15, 0.478354, 0.478354, 0, -1.15485, 0, 0.75, 3.55271e-15, -0.035, -0.005, 0.03)
-surface_material_override/0 = ExtResource("3_njyqk")
+[node name="Wheel_02" parent="Jeep_Import" index="1"]
+transform = Transform3D(1.15485, -7.10543e-15, 0.478354, 0.478354, 0, -1.15485, 0, 0.75, 7.10543e-15, 0.064221, 0.0114792, 0.03)
 
-[node name="Wheel_03" parent="Jeep_Initial" index="2"]
-transform = Transform3D(-1.15485, 7.10543e-15, 0.478354, -0.478354, 0, -1.15485, 0, -0.75, 0, 0.035, -0.005, -0.03)
-surface_material_override/0 = ExtResource("3_njyqk")
+[node name="Wheel_03" parent="Jeep_Import" index="2"]
+transform = Transform3D(-1.15485, 7.10543e-15, 0.478354, -0.478354, 0, -1.15485, 0, -0.75, 0, -0.00577904, 0.0114792, -0.03)
 
-[node name="Wheel_04" parent="Jeep_Initial" index="3"]
-unique_name_in_owner = true
-transform = Transform3D(-1.15485, 7.10543e-15, 0.478354, -0.478354, 0, -1.15485, 0, -0.75, 0, -0.035, -0.005, -0.03)
-surface_material_override/0 = ExtResource("3_njyqk")
+[node name="Wheel_04" parent="Jeep_Import" index="3"]
+transform = Transform3D(-1.15485, 7.10543e-15, 0.478354, -0.478354, 0, -1.15485, 0, -0.75, 0, 0.064221, 0.0114792, -0.03)
 
-[node name="Jeep_Initial_Beachball_01" parent="Jeep_Initial" index="4"]
+[node name="SM_Jeep" parent="Jeep_Import" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00906645, 0.0200626, 0)
-surface_material_override/4 = SubResource("StandardMaterial3D_njyqk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
