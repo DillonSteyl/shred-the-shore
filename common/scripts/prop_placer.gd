@@ -3,12 +3,15 @@ extends Node3D
 
 const MIN_DISTANCE_COVERED: float = 250.0
 const RAYCAST_ORIGIN_Y: float = 5.0
+const FREQUENCY_CHANGE_DURATION: float = 10.0
 
 @export var prop_scenes: Array[PackedScene]
 @export var player: Player
 @export var starting_offset: float = 10.0
-@export var min_distance: float
-@export var max_distance: float
+@export var start_min_distance: float
+@export var start_max_distance: float
+@export var end_min_distance: float
+@export var end_max_distance: float
 @export var x_variation: float = 48.0
 @export var randomize_y_rotation: bool = false
 @export var x_variations: Array[float] = []
@@ -18,8 +21,15 @@ const RAYCAST_ORIGIN_Y: float = 5.0
 
 @onready var _last_prop_z: float = -starting_offset
 
+@onready var min_distance: float = start_min_distance
+@onready var max_distance: float = start_max_distance
+
 
 func _ready() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "min_distance", end_min_distance, FREQUENCY_CHANGE_DURATION)
+	tween.tween_property(self, "max_distance", end_max_distance, FREQUENCY_CHANGE_DURATION)
+
 	spawn_new_prop()
 	while _should_spawn():
 		spawn_new_prop()
