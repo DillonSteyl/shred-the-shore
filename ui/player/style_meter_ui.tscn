@@ -49,5 +49,5 @@ offset_bottom = -9.35808
 rotation = -0.146978
 theme_override_colors/font_color = Color(0.793449, 0.426784, 0.350622, 1)
 theme_override_font_sizes/font_size = 40
-text = "x1.0"
+text = "x 1.0"
 horizontal_alignment = 2
