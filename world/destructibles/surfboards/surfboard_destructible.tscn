@@ -16,10 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://j46dkmbeumvj" path="res://common/assets/models/SM_Surfboard_12.fbx" id="13_qaqkp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nnvl8"]
-size = Vector3(1.03296, 3.84036, 0.0739746)
+size = Vector3(1.03296, 3.84036, 0.181641)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_imd7m"]
-size = Vector3(1.72949, 4.09229, 0.92749)
+size = Vector3(1.72949, 4.09229, 1.40649)
 
 [node name="SurfboardDestructible" type="Node3D"]
 script = ExtResource("1_k465o")

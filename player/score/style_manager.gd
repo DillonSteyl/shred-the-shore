@@ -16,11 +16,21 @@ class StyleBracket:
 	@export var name: String
 	@export var style_threshold: float
 	@export var multiplier: float
+	@export var wave_amplitude: float
+	@export var wave_speed: float
 
-	func _init(p_name: String, p_style_threshold: float, p_multiplier: float) -> void:
+	func _init(
+		p_name: String,
+		p_style_threshold: float,
+		p_multiplier: float,
+		p_wave_amplitude: float = 30.0,
+		p_wave_speed: float = 6.0,
+	) -> void:
 		name = p_name
 		style_threshold = p_style_threshold
 		multiplier = p_multiplier
+		wave_amplitude = p_wave_amplitude
+		wave_speed = p_wave_speed
 
 	func _to_string() -> String:
 		return name
@@ -28,11 +38,11 @@ class StyleBracket:
 
 @onready var style_brackets: Array[StyleBracket] = [
 	StyleBracket.new("Mellow", 0, 1.0),
-	StyleBracket.new("Clean", 10, 1.2),
-	StyleBracket.new("Slick!", 20, 1.5),
-	StyleBracket.new("Gnarly!", 40, 2.0),
-	StyleBracket.new("Radical!!", 80, 2.5),
-	StyleBracket.new("Astonishing!!!", 95, 3.0),
+	StyleBracket.new("Clean", 10, 1.2, 40, 8),
+	StyleBracket.new("Slick!", 20, 1.5, 50, 9),
+	StyleBracket.new("Gnarly!", 40, 2.0, 60, 10),
+	StyleBracket.new("Radical!!", 80, 2.5, 70, 11),
+	StyleBracket.new("Astonishing!!!", 95, 3.0, 80, 12),
 ]
 @onready var style_brackets_descending: Array[StyleBracket] = []
 @onready var current_bracket: StyleBracket = style_brackets[0]
@@ -49,6 +59,9 @@ func _ready() -> void:
 	style_decay_timer.one_shot = true
 	style_decay_timer.wait_time = STYLE_DECAY_DELAY
 	style_decay_timer.start()
+
+	style_changed.emit(style)
+	bracket_changed.emit(current_bracket)
 
 
 func get_current_bracket() -> StyleBracket:
