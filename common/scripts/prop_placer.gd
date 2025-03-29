@@ -12,6 +12,7 @@ const RAYCAST_ORIGIN_Y: float = 5.0
 @export var x_variation: float = 48.0
 @export var randomize_y_rotation: bool = false
 @export var x_variations: Array[float] = []
+@export var align_y: bool = false
 
 @onready var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 
@@ -30,6 +31,21 @@ func _physics_process(_delta: float) -> void:
 
 func _should_spawn():
 	return _last_prop_z > player.global_position.z - MIN_DISTANCE_COVERED
+
+
+func _align_up(node_basis, normal):
+	var result = Basis()
+
+	result.x = normal.cross(node_basis.z)
+	result.y = normal
+	result.z = node_basis.x.cross(normal)
+
+	result = result.orthonormalized()
+	# result.x *= scale.x
+	# result.y *= scale.y
+	# result.z *= scale.z
+
+	return result
 
 
 func spawn_new_prop() -> void:
@@ -54,13 +70,17 @@ func spawn_new_prop() -> void:
 		)
 	)
 	var result = space_state.intersect_ray(query)
-	if result.get("position"):
+	var surface_normal: Vector3 = Vector3.UP
+	if result:
 		y_offset = result.get("position").y
+		surface_normal = result.get("normal")
 
 	add_child(prop)
 	prop.global_position.z = _last_prop_z - z_offset
 	prop.global_position.x = x_offset
 	prop.global_position.y = y_offset
+	if align_y:
+		prop.basis = _align_up(prop.basis, surface_normal)
 	if randomize_y_rotation:
 		prop.rotate_y(randf_range(0, 2 * PI))
 	_last_prop_z = prop.global_position.z
