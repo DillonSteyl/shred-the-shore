@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://biooo6u8iqfrf"]
+[gd_scene load_steps=12 format=3 uid="uid://biooo6u8iqfrf"]
 
 [ext_resource type="Script" uid="uid://dcm16qlvtuvew" path="res://player/player.gd" id="1_5fo77"]
 [ext_resource type="PackedScene" uid="uid://c0d3ikyyc2i6k" path="res://common/effects/explosion.tscn" id="2_rgyib"]
@@ -12,6 +12,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hlo50"]
 size = Vector3(1.8772, 0.950989, 2.54322)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hg6s5"]
+size = Vector3(1.7, 0.345, 0.34)
 
 [node name="PlayerCar" type="CharacterBody3D"]
 collision_layer = 2
@@ -32,10 +35,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.109548, -0.763366)
 transform = Transform3D(1, 0, 0, 0, 0.91455, 0.404472, 0, -0.404472, 0.91455, 0.776548, 3.67204, 5.24544)
 current = true
 
-[node name="FloorCast" type="RayCast3D" parent="."]
+[node name="FloorCast" type="ShapeCast3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.128929, -1.40175)
-target_position = Vector3(0, -0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0736449, -1.37649)
+shape = SubResource("BoxShape3D_hg6s5")
+target_position = Vector3(0, -0.2, 0)
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("player")]
 unique_name_in_owner = true

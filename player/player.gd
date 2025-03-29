@@ -13,7 +13,7 @@ const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 
 # refs
 @onready var model: PlayerCarModel = $%PlayerCarModel
-@onready var floor_cast: RayCast3D = $%FloorCast
+@onready var floor_cast: ShapeCast3D = $%FloorCast
 @onready var state_machine: PlayerStateMachine = $%PlayerStateMachine
 @onready var score_manager: ScoreManager = $%ScoreManager
 @onready var ui: PlayerUI = $%PlayerUI
@@ -70,7 +70,7 @@ func _rotate_model(delta) -> void:
 	var goal_z_tilt = -deg_to_rad(20.0)
 	var z_tilt_lerp = 2.0
 	if floor_cast.is_colliding():
-		var floor_normal = floor_cast.get_collision_normal()
+		var floor_normal = floor_cast.get_collision_normal(0)
 		goal_z_tilt = floor_normal.signed_angle_to(Vector3.UP, Vector3.LEFT)
 		z_tilt_lerp = 15.0
 
