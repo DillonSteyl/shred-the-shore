@@ -16,7 +16,7 @@ const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 @onready var ui: PlayerUI = $%PlayerUI
 
 # persistent movement vars
-@onready var _steer: float = 0.0
+@onready var steer: float = 0.0
 
 # visual forward/back tilt
 @onready var _z_tilt: float = 0.0
@@ -30,14 +30,13 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	_steer = lerp(_steer, Input.get_axis("move_left", "move_right"), delta * steer_lerp)
 	_rotate_model(delta)
 	model.rotate_wheels(velocity)
 
 
 func _rotate_model(delta) -> void:
-	var rot_angle = _steer * VISUAL_ROTATION
-	var tilt_angle = _steer * VISUAL_TILT
+	var rot_angle = steer * VISUAL_ROTATION
+	var tilt_angle = steer * VISUAL_TILT
 
 	var goal_z_tilt = -deg_to_rad(20.0)
 	var z_tilt_lerp = 2.0

@@ -4,6 +4,8 @@ extends State
 const DOWN_GRAVITY_MULTIPLIER: float = 2.2
 const MINIMUM_DURATION_SCORE: float = 0.4
 
+@export var steer_lerp: float
+
 var initial_g: float
 var t: float
 
@@ -36,6 +38,7 @@ func active_physics_process(delta: float):
 	_gravity += gravity_increment
 
 	var movement = player.base_speed * Vector3.FORWARD
-	movement = movement.rotated(Vector3.UP, -1 * player._steer * player.MAX_STEER_ANGLE)
+	player.steer = lerp(player.steer, Input.get_axis("move_left", "move_right"), delta * steer_lerp)
+	movement = movement.rotated(Vector3.UP, -1 * player.steer * player.MAX_STEER_ANGLE)
 	player.velocity = movement + _gravity * Vector3.DOWN
 	player.move_and_slide()

@@ -42,9 +42,11 @@ initial_state = NodePath("Grounded")
 
 [node name="Grounded" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("4_5d8l8")
+steer_lerp = 4.0
 
 [node name="Airborne" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("5_31pr3")
+steer_lerp = 1.5
 
 [node name="ScoreManager" parent="." instance=ExtResource("6_31pr3")]
 unique_name_in_owner = true
