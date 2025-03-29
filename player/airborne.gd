@@ -18,6 +18,7 @@ var t: float
 func enter() -> void:
 	_gravity = initial_g
 	t = 0
+	player.model.animation_player.play("air")
 
 
 func exit() -> void:

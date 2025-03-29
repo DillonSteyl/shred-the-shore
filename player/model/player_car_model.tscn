@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://lts73oaba3r0"]
+[gd_scene load_steps=9 format=3 uid="uid://lts73oaba3r0"]
 
 [ext_resource type="PackedScene" uid="uid://dtupqeeaq1p41" path="res://common/assets/models/Jeep_FBX.fbx" id="1_w3lw7"]
 [ext_resource type="Script" uid="uid://bt4lp7dw4lpe3" path="res://player/model/player_car_model.gd" id="2_njyqk"]
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.00906645, 0.0200626, 0), Vector3(0.00906645, 0.0150247, 0), Vector3(0.00906645, 0.0200626, 0), Vector3(0.00906645, 0.0200626, 0)]
+"values": [Vector3(0.00906645, 0.0276814, 1.11022e-16), Vector3(0.00904479, 0.0168415, 9.46909e-13), Vector3(0.00906645, 0.0200626, 0), Vector3(0.00906645, 0.0200626, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -59,12 +59,29 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0739322), Vector3(0, 0, 0.0678759), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0739322), Vector3(0, 0, 0.113551), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6h3w1"]
+resource_name = "air"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jeep_Initial/Jeep_Initial_Beachball_01:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.00906645, 0.0200626, 0), Vector3(0.00906645, 0.0276814, 1.11022e-16)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g54u0"]
 _data = {
 &"RESET": SubResource("Animation_njyqk"),
+&"air": SubResource("Animation_6h3w1"),
 &"land": SubResource("Animation_njqqf")
 }
 
@@ -77,17 +94,21 @@ front_right_wheel = NodePath("Jeep_Initial/Wheel_04")
 transform = Transform3D(-1.18021e-06, 0, -27, 0, 27, 0, 27, 0, -1.18021e-06, -3.44583e-08, 0.128355, 0.811998)
 
 [node name="Wheel_01" parent="Jeep_Initial" index="0"]
+transform = Transform3D(1.15485, -7.10543e-15, 0.478354, 0.478354, 0, -1.15485, 0, 0.75, 3.55271e-15, 0.035, -0.005, 0.03)
 surface_material_override/0 = ExtResource("3_njyqk")
 
 [node name="Wheel_02" parent="Jeep_Initial" index="1"]
 unique_name_in_owner = true
+transform = Transform3D(1.15485, -7.10543e-15, 0.478354, 0.478354, 0, -1.15485, 0, 0.75, 3.55271e-15, -0.035, -0.005, 0.03)
 surface_material_override/0 = ExtResource("3_njyqk")
 
 [node name="Wheel_03" parent="Jeep_Initial" index="2"]
+transform = Transform3D(-1.15485, 7.10543e-15, 0.478354, -0.478354, 0, -1.15485, 0, -0.75, 0, 0.035, -0.005, -0.03)
 surface_material_override/0 = ExtResource("3_njyqk")
 
 [node name="Wheel_04" parent="Jeep_Initial" index="3"]
 unique_name_in_owner = true
+transform = Transform3D(-1.15485, 7.10543e-15, 0.478354, -0.478354, 0, -1.15485, 0, -0.75, 0, -0.035, -0.005, -0.03)
 surface_material_override/0 = ExtResource("3_njyqk")
 
 [node name="Jeep_Initial_Beachball_01" parent="Jeep_Initial" index="4"]

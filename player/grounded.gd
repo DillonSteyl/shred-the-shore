@@ -15,7 +15,7 @@ func enter() -> void:
 
 func active_physics_process(delta: float) -> void:
 	if not state_machine.player.floor_cast.is_colliding():
-		state_machine.airborne.initial_g = -player.get_real_velocity().y
+		state_machine.airborne.initial_g = min(-player.get_real_velocity().y, 0.0)
 		state_machine.transition_to(state_machine.airborne)
 		return
 
