@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode depth_draw_always;
+render_mode depth_prepass_alphas;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
 uniform vec4 color: source_color;
@@ -35,6 +35,7 @@ void fragment() {
 	normalmap += texture(normalmap_b, uv - uv_movement).rgb * normalmap_b_strength;
 
 	ALBEDO = color.rgb;
+	ALPHA = 0.5;
 	ROUGHNESS = roughness;
 	NORMAL = normalmap;
 }

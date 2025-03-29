@@ -31,10 +31,10 @@ as_normal_map = true
 noise = SubResource("FastNoiseLite_k6qjq")
 
 [resource]
-render_priority = 5
+render_priority = 1
 shader = ExtResource("1_fr33l")
 shader_parameter/color = Color(0.206352, 0.562493, 0.781909, 1)
-shader_parameter/roughness = 0.185
+shader_parameter/roughness = 0.035
 shader_parameter/normalmap_a = SubResource("NoiseTexture2D_3nvjo")
 shader_parameter/normalmap_b = SubResource("NoiseTexture2D_k6qjq")
 shader_parameter/height_texture = SubResource("NoiseTexture2D_h7gi2")
@@ -42,4 +42,4 @@ shader_parameter/normalmap_a_strength = 0.3
 shader_parameter/normalmap_b_strength = 0.4
 shader_parameter/uv_sampler_scale = 0.3
 shader_parameter/noise_scale = 0.2
-shader_parameter/height_strength = 2.0
+shader_parameter/height_strength = 0.59
