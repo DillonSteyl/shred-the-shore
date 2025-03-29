@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c30gnu3002igk"]
+
+[ext_resource type="PackedScene" uid="uid://bjaytba325tgq" path="res://common/assets/models/SM_Rock_Flat.fbx" id="1_05f2u"]
+[ext_resource type="Script" uid="uid://e4pbymf5axqa" path="res://world/obstacles/obstacle.gd" id="2_qkdxn"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_22gxm"]
+points = PackedVector3Array(-0.171132, -0.0180622, -0.158754, 0.204393, 0.0277257, 0.101326, 0.195607, 0.0506188, 0.123769, -0.0797031, -0.12508, 0.169525, -0.118389, 0.188811, 0.131834, 0.149719, -0.0258243, -0.151602, 0.0196127, -0.17125, -0.174632, 0.109545, 0.200667, 0.0391364, 0.011755, 0.0955946, -0.172374, 0.00436404, 0.0737767, 0.247074, -0.171143, -0.117224, 0.0776387, 0.0802756, -0.162297, 0.054618, -0.111186, -0.180357, -0.121984, -0.219468, -0.00305629, 0.0552939, -0.0187023, -0.0800593, -0.237518, -0.0638808, 0.171389, -0.0590275, 0.173222, 0.0430464, 0.185586, 0.0349634, 0.226778, 0.0932414, 0.10294, -0.146919, -0.150325, -0.0262791, 0.0200423, 0.25437, -0.118005, -0.186422, 0.0395683, -0.209946, 0.00479139, -0.0598051, 0.159784, 0.0127098, -0.131867, 0.155571, -0.100963, -0.0287389, 0.171825, -0.0103923, 0.161315, -0.101181, 0.117866, -0.118877, -0.110699, -0.0489461, -0.221122, 0.172462, 0.1347, 0.0624918, 0.034779, 0.0505057, -0.204399, -0.155735, -0.101875, -0.15862, 0.00417666, -0.00255418, 0.250764, 0.0270539, -0.0863782, -0.234274)
+
+[node name="RockFlat" instance=ExtResource("1_05f2u")]
+
+[node name="Rock_v3" parent="." index="0"]
+transform = Transform3D(11.8256, 0, 0, 0, 10.5805, 0, 0, 0, 13.1069, 0, 0, 0)
+
+[node name="Obstacle" type="Area3D" parent="." index="1"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_qkdxn")
+metadata/_custom_type_script = "uid://e4pbymf5axqa"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle" index="0"]
+transform = Transform3D(10.4656, 0, 0, 0, 9.36371, 0, 0, 0, 11.5996, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_22gxm")

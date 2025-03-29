@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cno2wqyx8gv8"]
+
+[ext_resource type="PackedScene" uid="uid://cattkngo7wudt" path="res://common/assets/models/SM_Rock_Tall.fbx" id="1_h1w5l"]
+[ext_resource type="Script" uid="uid://e4pbymf5axqa" path="res://world/obstacles/obstacle.gd" id="2_hw7b6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h1w5l"]
+size = Vector3(2.80208, 7.94118, 5)
+
+[node name="RockTall" instance=ExtResource("1_h1w5l")]
+
+[node name="Rock_v2" parent="." index="0"]
+transform = Transform3D(0, -6.18724, -8.75707, 0, 23.0911, -2.34645, 23.9056, 0, 0, -0.221119, 0.825229, 0)
+
+[node name="Obstacle" type="Area3D" parent="." index="1"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_hw7b6")
+metadata/_custom_type_script = "uid://e4pbymf5axqa"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle" index="0"]
+transform = Transform3D(0.955875, -0.293773, 0, 0.293773, 0.955875, 0, 0, 0, 1, -1.0108, 1.66066, 0)
+shape = SubResource("BoxShape3D_h1w5l")

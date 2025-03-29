@@ -4,12 +4,13 @@ extends Node3D
 const MIN_DISTANCE_COVERED: float = 250.0
 const RAYCAST_ORIGIN_Y: float = 5.0
 
-@export var prop_scene: PackedScene
+@export var prop_scenes: Array[PackedScene]
 @export var player: Player
 @export var starting_offset: float = 10.0
 @export var min_distance: float
 @export var max_distance: float
 @export var x_variation: float = 48.0
+@export var randomize_y_rotation: bool = false
 
 @onready var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 
@@ -31,7 +32,8 @@ func _should_spawn():
 
 
 func spawn_new_prop() -> void:
-	var prop = prop_scene.instantiate()
+	var prop_scene = prop_scenes[randi() % len(prop_scenes)]
+	var prop: Node3D = prop_scene.instantiate()
 	var z_offset = randf_range(min_distance, max_distance)
 	var x_offset = randf_range(-x_variation, x_variation)
 
@@ -51,4 +53,6 @@ func spawn_new_prop() -> void:
 	prop.global_position.z = _last_prop_z - z_offset
 	prop.global_position.x = x_offset
 	prop.global_position.y = y_offset
+	if randomize_y_rotation:
+		prop.rotate_y(randf_range(0, 2 * PI))
 	_last_prop_z = prop.global_position.z

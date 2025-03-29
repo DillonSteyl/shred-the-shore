@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://crncjv8iijcwg"]
+
+[ext_resource type="PackedScene" uid="uid://dhyjgrlm7mje2" path="res://common/assets/models/SM_Rock_Dome.fbx" id="1_srf0x"]
+[ext_resource type="Script" uid="uid://e4pbymf5axqa" path="res://world/obstacles/obstacle.gd" id="2_gfrol"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_srf0x"]
+points = PackedVector3Array(-0.0105042, 0.0204716, 0.230773, -0.0221236, -0.00437301, -0.269773, -0.0471682, -0.00437301, -0.261407, 0.0196, 0.187064, -0.0635563, 0.286673, -0.00437301, -0.0027, -0.247473, -0.00437301, 0.013979, 0.0270553, 0.170614, 0.0646321, -0.133239, 0.14162, -0.0332487, 0.178129, -0.00437301, 0.180873, 0.103023, 0.179238, -0.0785646, 0.118183, 0.133674, 0.103437, -0.180705, -0.00437301, -0.203005, 0.13852, 0.000628667, -0.193001, -0.0033204, 0.157006, -0.13279, 0.0112867, -0.00437301, 0.264373, 0.0893959, 0.134547, -0.150069, -0.122616, 0.0883039, 0.0721605, 0.125498, 0.163862, 0.0275431, -0.094286, 0.164104, -0.0710125, -0.06958, 0.162664, 0.0270112, -0.146964, 0.00059641, 0.132111, 0.278307, -0.00437301, 0.0390236, -0.205697, -0.00437301, -0.169594, 0.261628, -0.00437301, -0.052737, 0.0362267, -0.00437301, -0.261407, -0.00250133, 0.0810413, 0.174434, 0.0120549, 0.186676, 0.0199827, 0.0659366, 0.173055, -0.126361, -0.165214, 0.103468, 0.00497044, -0.247473, -0.00437301, -0.0276923, 0.0498385, 0.110887, 0.148587, -0.0700499, 0.0659, 0.146732)
+
+[node name="RockDome" instance=ExtResource("1_srf0x")]
+
+[node name="Rock_v1" parent="." index="0"]
+transform = Transform3D(13.3396, 0, 0, 0, 13.3396, 0, 0, 0, 13.3396, 0, -0.0878592, 0)
+
+[node name="Obstacle" type="Area3D" parent="." index="1"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_gfrol")
+metadata/_custom_type_script = "uid://e4pbymf5axqa"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle" index="0"]
+transform = Transform3D(11.2564, 0, 0, 0, 11.2564, 0, 0, 0, 11.2564, 0, -0.0878592, 0)
+shape = SubResource("ConvexPolygonShape3D_srf0x")
