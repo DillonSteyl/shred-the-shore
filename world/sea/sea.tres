@@ -1,0 +1,45 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://t08bnwkhymv8"]
+
+[ext_resource type="Shader" uid="uid://i01uas8ai87s" path="res://world/sea/sea.gdshader" id="1_fr33l"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fgs46"]
+frequency = 0.0278
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h7gi2"]
+seamless = true
+noise = SubResource("FastNoiseLite_fgs46")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3nvjo"]
+noise_type = 2
+frequency = 0.0147
+fractal_type = 0
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3nvjo"]
+seamless = true
+seamless_blend_skirt = 0.3
+as_normal_map = true
+noise = SubResource("FastNoiseLite_3nvjo")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k6qjq"]
+frequency = 0.0239
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k6qjq"]
+seamless = true
+seamless_blend_skirt = 0.3
+as_normal_map = true
+noise = SubResource("FastNoiseLite_k6qjq")
+
+[resource]
+render_priority = 5
+shader = ExtResource("1_fr33l")
+shader_parameter/color = Color(0.206352, 0.562493, 0.781909, 1)
+shader_parameter/roughness = 0.185
+shader_parameter/normalmap_a = SubResource("NoiseTexture2D_3nvjo")
+shader_parameter/normalmap_b = SubResource("NoiseTexture2D_k6qjq")
+shader_parameter/height_texture = SubResource("NoiseTexture2D_h7gi2")
+shader_parameter/normalmap_a_strength = 0.3
+shader_parameter/normalmap_b_strength = 0.4
+shader_parameter/uv_sampler_scale = 0.3
+shader_parameter/noise_scale = 0.2
+shader_parameter/height_strength = 2.0

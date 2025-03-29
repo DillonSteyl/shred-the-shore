@@ -1,8 +1,16 @@
-[gd_resource type="Environment" format=3 uid="uid://bis1xkynm587"]
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://bis1xkynm587"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lsrbk"]
+
+[sub_resource type="Sky" id="Sky_fbxpe"]
+sky_material = SubResource("ProceduralSkyMaterial_lsrbk")
 
 [resource]
+background_mode = 2
+sky = SubResource("Sky_fbxpe")
 ambient_light_source = 3
-ambient_light_color = Color(0.795908, 0.727977, 0.72325, 1)
+ambient_light_color = Color(0.812304, 0.69991, 0.726533, 1)
+tonemap_mode = 3
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.859912, 0.574362, 0.351353, 1)

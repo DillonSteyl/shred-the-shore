@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8kcgccnkuabd"]
+[gd_scene load_steps=12 format=3 uid="uid://b8kcgccnkuabd"]
 
 [ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_5c6m7"]
 [ext_resource type="PackedScene" uid="uid://biooo6u8iqfrf" path="res://player/player.tscn" id="2_1xoix"]
 [ext_resource type="PackedScene" uid="uid://e2vbbybcxjly" path="res://world/ramps/ramp.tscn" id="3_3or81"]
-[ext_resource type="PackedScene" uid="uid://dtvnvnm1ab138" path="res://world/sea/sea.tscn" id="4_ok4vg"]
+[ext_resource type="Material" uid="uid://t08bnwkhymv8" path="res://world/sea/sea.tres" id="4_3nvjo"]
+[ext_resource type="Script" uid="uid://cynteu8klxdge" path="res://world/sea/sea_mesh.gd" id="5_3nvjo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xoix"]
 albedo_color = Color(0.771829, 0.766596, 0.752363, 1)
@@ -22,6 +23,12 @@ albedo_color = Color(0.489622, 0.489622, 0.489622, 1)
 material = SubResource("StandardMaterial3D_3or81")
 radial_segments = 8
 rings = 3
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3or81"]
+material = ExtResource("4_3nvjo")
+size = Vector2(200, 300)
+subdivide_width = 500
+subdivide_depth = 500
 
 [node name="TestDriving" type="Node3D"]
 
@@ -70,59 +77,63 @@ transform = Transform3D(4.55468, 0, 0, 0, 4.55468, 0, 0, 0, 4.55468, -17.7746, 0
 mesh = SubResource("SphereMesh_ok4vg")
 skeleton = NodePath("../../MeshInstance3D")
 
+[node name="Ramps" type="Node3D" parent="."]
+
+[node name="Ramp" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -83)
+
+[node name="Ramp2" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -150)
+
+[node name="Ramp3" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.391, 0, -211)
+
+[node name="Ramp4" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3716, 0, -255.438)
+
+[node name="Ramp5" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8064, 0, -313.132)
+
+[node name="Ramp6" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1858, 1.52588e-05, -378.872)
+
+[node name="Ramp7" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2488, 1.52588e-05, -440.102)
+
+[node name="Ramp8" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59219, 3.05176e-05, -493.526)
+
+[node name="Ramp9" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2065, 3.05176e-05, -533.209)
+
+[node name="Ramp10" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2689, -0.12937, -589.39)
+
+[node name="Ramp11" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.031, -0.129362, -613.074)
+
+[node name="Ramp12" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.14917, -0.129362, -654.458)
+
+[node name="Ramp13" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.80072, -0.129362, -701.079)
+
+[node name="Ramp14" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53997, -0.129362, -748.709)
+
+[node name="Ramp15" parent="Ramps" instance=ExtResource("3_3or81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5653, -0.129362, -794.636)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.771047, 0.132241, -0.622896, 0, 0.978198, 0.207672, 0.636778, -0.160125, 0.754237, 0, 4.36424, 8.4208)
+transform = Transform3D(-0.434662, -0.177679, 0.882893, 0.155405, 0.950842, 0.267861, -0.887084, 0.253635, -0.385682, 0, 4.36424, 8.4208)
 light_color = Color(0.833661, 0.673434, 0.53449, 1)
-light_energy = 1.967
 shadow_enabled = true
 
 [node name="PlayerCar" parent="." instance=ExtResource("2_1xoix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57074, -1.24064)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27273, 0.57074, -1.24064)
 
-[node name="Ramp" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -83)
-
-[node name="Ramp2" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -150)
-
-[node name="Ramp3" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.391, 0, -211)
-
-[node name="Ramp4" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3716, 0, -255.438)
-
-[node name="Ramp5" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8064, 0, -313.132)
-
-[node name="Ramp6" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1858, 1.52588e-05, -378.872)
-
-[node name="Ramp7" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2488, 1.52588e-05, -440.102)
-
-[node name="Ramp8" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59219, 3.05176e-05, -493.526)
-
-[node name="Ramp9" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2065, 3.05176e-05, -533.209)
-
-[node name="Ramp10" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2689, -0.12937, -589.39)
-
-[node name="Ramp11" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.031, -0.129362, -613.074)
-
-[node name="Ramp12" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.14917, -0.129362, -654.458)
-
-[node name="Ramp13" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.80072, -0.129362, -701.079)
-
-[node name="Ramp14" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53997, -0.129362, -748.709)
-
-[node name="Ramp15" parent="." instance=ExtResource("3_3or81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5653, -0.129362, -794.636)
-
-[node name="Sea" parent="." instance=ExtResource("4_ok4vg")]
-transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, 80.3777, -1.4945, -238.739)
+[node name="SeaMesh" type="MeshInstance3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(0.999972, 0, -0.00750485, 0, 1, 0, 0.00750485, 0, 0.999972, 113.624, -2.21634, -113.613)
+mesh = SubResource("PlaneMesh_3or81")
+script = ExtResource("5_3nvjo")
+player = NodePath("../PlayerCar")
