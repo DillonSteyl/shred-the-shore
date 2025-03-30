@@ -19,6 +19,7 @@ const BOOST_MULTIPLIER: float = 1.0
 @onready var state_machine: PlayerStateMachine = $%PlayerStateMachine
 @onready var score_manager: ScoreManager = $%ScoreManager
 @onready var ui: PlayerUI = $%PlayerUI
+@onready var sfx: PlayerSFX = $%SFX
 
 # persistent movement vars
 @onready var steer: float = 0.0
@@ -52,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and can_trick:
 		model.animation_player.play("trick")
 		score_manager.trick()
+		sfx.trick()
 
 	speed = base_speed
 	if not boost_timer.is_stopped():
@@ -67,6 +69,7 @@ func die():
 	state_machine.transition_to(state_machine.dead)
 	model.visible = false
 	ui.show_game_over(score_manager.score)
+	sfx.explode()
 
 
 func boost():

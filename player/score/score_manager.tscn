@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdn784ajh1e7q"]
+[gd_scene load_steps=4 format=3 uid="uid://cdn784ajh1e7q"]
 
 [ext_resource type="Script" uid="uid://ca46c8nofdx17" path="res://player/score/score_manager.gd" id="1_eqgmd"]
 [ext_resource type="Script" uid="uid://bhuar01mu37n" path="res://player/score/style_manager.gd" id="2_wytsk"]
+[ext_resource type="AudioStream" uid="uid://b8e6b32sbjsol" path="res://common/assets/sounds/score/button_05-190440.mp3" id="3_yqcsn"]
 
 [node name="ScoreManager" type="Node"]
 script = ExtResource("1_eqgmd")
@@ -9,3 +10,7 @@ script = ExtResource("1_eqgmd")
 [node name="StyleManager" type="Node" parent="."]
 script = ExtResource("2_wytsk")
 metadata/_custom_type_script = "uid://bhuar01mu37n"
+
+[node name="ScoreAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yqcsn")
+bus = &"SFX"

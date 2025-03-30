@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://biooo6u8iqfrf"]
+[gd_scene load_steps=17 format=3 uid="uid://biooo6u8iqfrf"]
 
 [ext_resource type="Script" uid="uid://dcm16qlvtuvew" path="res://player/player.gd" id="1_5fo77"]
 [ext_resource type="PackedScene" uid="uid://c0d3ikyyc2i6k" path="res://common/effects/explosion.tscn" id="2_rgyib"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://umh8le0drjhi" path="res://ui/player/player_ui.tscn" id="7_av4sv"]
 [ext_resource type="Script" uid="uid://bstai1nhxfehp" path="res://player/dead.gd" id="7_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://lts73oaba3r0" path="res://player/model/player_car_model.tscn" id="8_rgyib"]
+[ext_resource type="Script" uid="uid://dqllxu88l7v1r" path="res://player/sfx.gd" id="10_2ieo8"]
+[ext_resource type="AudioStream" uid="uid://cewiiwwmxo52n" path="res://common/assets/sounds/landing_thud/metal-moving-81780.mp3" id="10_8t03j"]
+[ext_resource type="AudioStream" uid="uid://bs3lla5wlp7xn" path="res://common/assets/sounds/car_crash/ui-designed-hit-modern-interface-impact-sweetener-01-230484.mp3" id="12_ebec5"]
+[ext_resource type="AudioStream" uid="uid://dc6ag2mtpipjr" path="res://common/assets/sounds/whoosh/whoosh-motion-243505.mp3" id="13_yllr7"]
+[ext_resource type="AudioStream" uid="uid://cxbgtqpip28yn" path="res://common/assets/sounds/engine/engine-6000.mp3" id="14_kb6p2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hlo50"]
 size = Vector3(1.8772, 0.950989, 2.54322)
@@ -63,3 +68,27 @@ unique_name_in_owner = true
 
 [node name="PlayerUI" parent="." instance=ExtResource("7_av4sv")]
 unique_name_in_owner = true
+
+[node name="SFX" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("10_2ieo8")
+
+[node name="Landing" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("10_8t03j")
+volume_db = 4.0
+bus = &"SFX"
+
+[node name="Explode" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("12_ebec5")
+volume_db = 3.0
+bus = &"SFX"
+
+[node name="Whoosh" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_yllr7")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_kb6p2")
+volume_db = -6.0
+autoplay = true
+bus = &"SFX"

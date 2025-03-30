@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3gv7jt4uspgh"]
+[gd_scene load_steps=4 format=3 uid="uid://b3gv7jt4uspgh"]
 
 [ext_resource type="Script" uid="uid://ds3vbd3q4v2ih" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="AudioStream" uid="uid://b4m6y6syq25cd" path="res://common/assets/music/wave_rider.mp3" id="2_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://biyf38iyutdd" path="res://common/assets/sounds/ocean_ambience/small-waves-onto-the-sand-143040.mp3" id="3_h2yge"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
@@ -15,3 +17,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="BGMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0xm2m")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"
+
+[node name="OceanAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_h2yge")
+volume_db = -8.0
+autoplay = true
+bus = &"Ambience"

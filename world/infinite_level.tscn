@@ -32,7 +32,7 @@ script = ExtResource("1_gqrty")
 environment = ExtResource("1_a71je")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.439494, -0.221421, 0.870528, 0.153934, 0.936239, 0.315849, -0.884957, 0.272818, -0.377387, 0, 4.36424, 8.4208)
+transform = Transform3D(-0.219489, -0.221421, 0.950157, 0.224737, 0.936239, 0.270092, -0.949377, 0.272818, -0.155733, 0, 4.36424, 8.4208)
 light_color = Color(0.833661, 0.673434, 0.53449, 1)
 shadow_enabled = true
 sky_mode = 1
@@ -71,6 +71,9 @@ end_min_distance = 300.0
 end_max_distance = 300.0
 x_variation = 0.0
 metadata/_custom_type_script = "uid://85ntwh888c0s"
+
+[node name="GroundPiece" parent="GroundPlacer" instance=ExtResource("11_jrloa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.15, 0, 0, 39.7276)
 
 [node name="RampPlacer" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("8_gqrty")

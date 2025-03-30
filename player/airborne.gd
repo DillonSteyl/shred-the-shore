@@ -26,6 +26,7 @@ func enter() -> void:
 func exit() -> void:
 	player.score_manager.style_manager.decay_enabled = true
 	if t > MINIMUM_DURATION_SCORE:
+		player.sfx.land()
 		player.score_manager.add_jump(Utils.round_to_dec(t, 1))
 		player.boost()
 

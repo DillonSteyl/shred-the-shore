@@ -30,6 +30,8 @@ func _add_points(points: int, event_name: String):
 	var multiplier = style_manager.current_bracket.multiplier
 	score += int(points * multiplier)
 	score_event_triggered.emit(event_name, points, multiplier)
+	$ScoreAudio.pitch_scale = randf_range(1.0, 1.2)
+	$ScoreAudio.play()
 
 
 func _set_score(new_score: int):
