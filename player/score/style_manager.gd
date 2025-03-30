@@ -6,8 +6,8 @@ signal bracket_changed(new_bracket: StyleBracket)
 
 const MIN_STYLE: float = 0.0
 const MAX_STYLE: float = 100.0
-const STYLE_DECAY_DELAY: float = 2.0
-const STYLE_DECAY_PER_SECOND: float = 8.0
+const STYLE_DECAY_DELAY: float = 1.0
+const STYLE_DECAY_PER_SECOND: float = 10.0
 
 
 class StyleBracket:
@@ -38,17 +38,18 @@ class StyleBracket:
 
 @onready var style_brackets: Array[StyleBracket] = [
 	StyleBracket.new("Mellow", 0, 1.0),
-	StyleBracket.new("Clean", 5, 1.2, 40, 8),
-	StyleBracket.new("Slick!", 15, 1.5, 50, 9),
-	StyleBracket.new("Gnarly!", 30, 2.0, 60, 10),
-	StyleBracket.new("Radical!!", 60, 2.5, 70, 11),
+	StyleBracket.new("Clean", 20, 1.2, 40, 8),
+	StyleBracket.new("Slick!", 40, 1.5, 50, 9),
+	StyleBracket.new("Gnarly!", 60, 2.0, 60, 10),
+	StyleBracket.new("Radical!!", 80, 2.5, 70, 11),
 	StyleBracket.new("Astonishing!!!", 95, 3.0, 80, 12),
 ]
 @onready var style_brackets_descending: Array[StyleBracket] = []
 @onready var current_bracket: StyleBracket = style_brackets[0]
+@onready var decay_enabled: bool = true
+@onready var style_decay_timer: Timer = Timer.new()
 @onready var style: float = 0:
 	set = _set_style
-@onready var style_decay_timer: Timer = Timer.new()
 
 
 func _ready() -> void:
@@ -73,7 +74,7 @@ func get_current_bracket() -> StyleBracket:
 
 
 func _physics_process(delta: float) -> void:
-	if style_decay_timer.is_stopped():
+	if style_decay_timer.is_stopped() and decay_enabled:
 		style -= STYLE_DECAY_PER_SECOND * delta
 
 
