@@ -1,13 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3gv7jt4uspgh"]
+[gd_scene load_steps=2 format=3 uid="uid://b3gv7jt4uspgh"]
 
 [ext_resource type="Script" uid="uid://ds3vbd3q4v2ih" path="res://main.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dpwnu4cvyxwpp" path="res://world/infinite_level.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://c43oga216sc22" path="res://ui/main_menu/main_menu_scene.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
-game_scene = ExtResource("2_0xm2m")
-main_menu_scene = ExtResource("3_h2yge")
 
 [node name="World" type="Node3D" parent="."]
 

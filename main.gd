@@ -1,10 +1,15 @@
 class_name Main
 extends Node
 
-@export var game_scene: PackedScene
-@export var main_menu_scene: PackedScene
-
-const MAIN_MENU_SCENE = preload("res://ui/main_menu/main_menu.tscn")
+@onready var game_scene = ResourceLoader.load(
+	"res://world/infinite_level.tscn", "", ResourceLoader.CACHE_MODE_IGNORE_DEEP
+)
+@onready var main_menu_ui = ResourceLoader.load(
+	"res://ui/main_menu/main_menu.tscn", "", ResourceLoader.CACHE_MODE_IGNORE
+)
+@onready var main_menu_scene = ResourceLoader.load(
+	"res://ui/main_menu/main_menu_scene.tscn", "", ResourceLoader.CACHE_MODE_IGNORE
+)
 
 @onready var world: Node3D = $World
 @onready var ui: Control = $UI
@@ -17,7 +22,7 @@ func _ready() -> void:
 func go_to_menu() -> void:
 	set_world(main_menu_scene.instantiate())
 
-	var main_menu: MainMenu = MAIN_MENU_SCENE.instantiate()
+	var main_menu: MainMenu = main_menu_ui.instantiate()
 	set_ui(main_menu)
 	main_menu.play_button.pressed.connect(play_game)
 

@@ -13,7 +13,7 @@ size = Vector3(28.0332, 8.1992, 14.2225)
 [node name="SandDuneJumpWide" instance=ExtResource("1_ijtlv")]
 
 [node name="dune_Jump_Wide" parent="." index="0"]
-transform = Transform3D(-0.000411012, 0, 6947.05, 0, 171.322, 0, -3477.16, 0, -0.000986426, 0, -2.0327, 1.57772e-32)
+transform = Transform3D(-0.000493005, 0, 8332.92, 0, 205.499, 0, -4170.82, 0, -0.00118321, 0, -3.41734, 1.57772e-32)
 surface_material_override/0 = ExtResource("2_tqudx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="dune_Jump_Wide" index="0"]
