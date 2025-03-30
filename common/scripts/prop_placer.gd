@@ -1,9 +1,10 @@
 class_name PropPlacer
 extends Node3D
 
-const MIN_DISTANCE_COVERED: float = 250.0
-const RAYCAST_ORIGIN_Y: float = 5.0
+const DEFAULT_MIN_DISTANCE_COVERED: float = 250.0
+const RAYCAST_ORIGIN_Y: float = 30.0
 
+@export var min_distance_covered: float = DEFAULT_MIN_DISTANCE_COVERED
 @export var prop_scenes: Array[PackedScene]
 @export var player: Player
 @export var starting_offset: float = 10.0
@@ -15,6 +16,7 @@ const RAYCAST_ORIGIN_Y: float = 5.0
 @export var randomize_y_rotation: bool = false
 @export var x_variations: Array[float] = []
 @export var align_y: bool = false
+@export var raycast_y: bool = true
 
 @onready var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 
@@ -46,7 +48,7 @@ func _physics_process(_delta: float) -> void:
 func _should_spawn():
 	if not player:
 		return false
-	return _last_prop_z > player.global_position.z - MIN_DISTANCE_COVERED
+	return _last_prop_z > player.global_position.z - min_distance_covered
 
 
 func _align_up(node_basis: Basis, normal: Vector3):
@@ -88,7 +90,7 @@ func spawn_new_prop() -> void:
 	)
 	var result = space_state.intersect_ray(query)
 	var surface_normal: Vector3 = Vector3.UP
-	if result:
+	if raycast_y and result:
 		y_offset = result.get("position").y
 		surface_normal = result.get("normal")
 
