@@ -1,19 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg4vqrgc66xrk"]
+[gd_scene load_steps=9 format=3 uid="uid://bg4vqrgc66xrk"]
 
 [ext_resource type="PackedScene" uid="uid://bludxeegk7fm3" path="res://common/assets/models/SM_Umbrella_Open.fbx" id="1_2n8uh"]
 [ext_resource type="PackedScene" uid="uid://8tml27qnmfpo" path="res://world/destructibles/destructible_rigidbody.tscn" id="1_evbyl"]
+[ext_resource type="Script" uid="uid://dutbld5re24ah" path="res://world/destructibles/picnic_sets/umbrella_destructible.gd" id="1_sa076"]
 [ext_resource type="Script" uid="uid://ca21jni7bsdxf" path="res://world/destructibles/destructible_detection_area.gd" id="2_evbyl"]
+[ext_resource type="PackedScene" uid="uid://caywjxn6t1a7h" path="res://common/assets/models/SM_Umbrella_Closed.fbx" id="2_pgj8j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6w748"]
 size = Vector3(2.14, 9.425, 1.78711)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2n8uh"]
-size = Vector3(14.0918, 3.27597, 13.8596)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ictms"]
-size = Vector3(14.947, 11.0617, 16.6953)
+size = Vector3(3.3186, 9.61467, 3.70898)
 
-[node name="UmbrellaDestructible" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_sa076"]
+size = Vector3(15.3242, 3.31905, 14.4463)
+
+[node name="UmbrellaDestructible" type="Node3D" node_paths=PackedStringArray("mesh_slot")]
+script = ExtResource("1_sa076")
+closed_umbrella = ExtResource("2_pgj8j")
+mesh_slot = NodePath("RigidBody3D/MeshSlot")
 
 [node name="RigidBody3D" parent="." instance=ExtResource("1_evbyl")]
 
@@ -27,10 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0590261, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101613, 3.88902, 0)
 shape = SubResource("BoxShape3D_6w748")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101613, 7.29242, 0)
-shape = SubResource("BoxShape3D_2n8uh")
-
 [node name="DestructibleDetectionArea" type="Area3D" parent="." node_paths=PackedStringArray("rigidbody")]
 collision_layer = 0
 collision_mask = 2
@@ -39,5 +40,9 @@ rigidbody = NodePath("../RigidBody3D")
 metadata/_custom_type_script = "uid://ca21jni7bsdxf"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DestructibleDetectionArea"]
-transform = Transform3D(1.02427, 0, 0, 0, 1.02427, 0, 0, 0, 1.02427, -4.93526e-05, 3.72754, 0)
+transform = Transform3D(1.02427, 0, 0, 0, 1.02427, 0, 0, 0, 1.02427, -4.93526e-05, 4.34891, 0)
 shape = SubResource("BoxShape3D_ictms")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DestructibleDetectionArea"]
+transform = Transform3D(1.02427, 0, 0, 0, 1.02427, 0, 0, 0, 1.02427, -4.93526e-05, 7.57312, 0)
+shape = SubResource("BoxShape3D_sa076")

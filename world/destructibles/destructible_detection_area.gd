@@ -1,6 +1,8 @@
 class_name DestructibleDetectionArea
 extends Area3D
 
+signal hit
+
 @export var rigidbody: RigidBody3D
 
 
@@ -10,6 +12,7 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
+	hit.emit()
 	if not body is Player:
 		return
 
