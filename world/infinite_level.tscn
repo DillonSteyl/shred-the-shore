@@ -78,8 +78,8 @@ prop_scenes = Array[PackedScene]([ExtResource("9_4pska"), ExtResource("9_4pska")
 player = NodePath("../Player")
 start_min_distance = 80.0
 start_max_distance = 110.0
-end_min_distance = 100.0
-end_max_distance = 130.0
+end_min_distance = 160.0
+end_max_distance = 200.0
 x_variations = Array[float]([45.0, 45.0, 15.0])
 metadata/_custom_type_script = "uid://85ntwh888c0s"
 
