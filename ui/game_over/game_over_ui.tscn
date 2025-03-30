@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2t6i6sn6u21y"]
+[gd_scene load_steps=7 format=3 uid="uid://d2t6i6sn6u21y"]
 
 [ext_resource type="FontFile" uid="uid://b4mionyj7ts3g" path="res://common/assets/fonts/SedgwickAveDisplay-Regular.ttf" id="1_4p6sx"]
 [ext_resource type="Script" uid="uid://g2xln3mt7tgx" path="res://ui/game_over/game_over_ui.gd" id="1_ccmqp"]
+[ext_resource type="Theme" uid="uid://daokerupce7cs" path="res://ui/ui_theme.tres" id="1_epwan"]
 
 [sub_resource type="Animation" id="Animation_ccmqp"]
 length = 0.001
@@ -53,10 +54,23 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/BracketLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_4p6sx"]
 resource_name = "show"
-length = 2.1
+length = 4.0
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -88,7 +102,7 @@ tracks/2/path = NodePath("VBoxContainer/ButtonsGroup:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.7, 2),
+"times": PackedFloat32Array(3.6, 3.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1.19209e-07), Color(1, 1, 1, 1)]
@@ -100,7 +114,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2),
+"times": PackedFloat32Array(3.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -114,7 +128,19 @@ tracks/4/path = NodePath("VBoxContainer/ScoreLabel:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.3, 1.7),
+"times": PackedFloat32Array(3.2, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/BracketLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2, 2.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -133,6 +159,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_epwan")
 script = ExtResource("1_ccmqp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -170,6 +197,26 @@ theme_override_constants/outline_size = 24
 theme_override_fonts/font = ExtResource("1_4p6sx")
 theme_override_font_sizes/font_size = 128
 text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BracketLabel" type="RichTextLabel" parent="VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/shadow_offset_x = 6
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/mono_font_size = 48
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "you were mellow"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 

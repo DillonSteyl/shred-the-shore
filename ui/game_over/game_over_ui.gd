@@ -5,6 +5,7 @@ extends Control
 @onready var play_again_button: Button = $%PlayButton
 @onready var exit_button: Button = $%ExitButton
 @onready var score_label: Label = $%ScoreLabel
+@onready var bracket_label: RichTextLabel = $%BracketLabel
 
 
 func open() -> void:

@@ -68,7 +68,7 @@ func die():
 	add_child(explosion)
 	state_machine.transition_to(state_machine.dead)
 	model.visible = false
-	ui.show_game_over(score_manager.score)
+	ui.show_game_over(score_manager.score, score_manager.style_manager.current_bracket)
 	sfx.explode()
 
 

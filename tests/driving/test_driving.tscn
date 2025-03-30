@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8kcgccnkuabd"]
+[gd_scene load_steps=14 format=3 uid="uid://b8kcgccnkuabd"]
 
 [ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_5c6m7"]
 [ext_resource type="PackedScene" uid="uid://biooo6u8iqfrf" path="res://player/player.tscn" id="2_1xoix"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://t08bnwkhymv8" path="res://world/sea/sea.tres" id="4_3nvjo"]
 [ext_resource type="Script" uid="uid://cynteu8klxdge" path="res://world/sea/player_follow_z.gd" id="5_3nvjo"]
 [ext_resource type="PackedScene" uid="uid://dqrdr4a76clql" path="res://world/destructibles/surfboards/surfboard_cluster_1.tscn" id="7_fgs46"]
+[ext_resource type="PackedScene" uid="uid://crncjv8iijcwg" path="res://world/obstacles/rock_dome.tscn" id="8_h7gi2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgs46"]
 albedo_color = Color(0.771829, 0.766596, 0.752363, 1)
@@ -124,3 +125,6 @@ player = NodePath("../Player")
 
 [node name="SurfboardCluster1" parent="." instance=ExtResource("7_fgs46")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.522735, 0, -29.6454)
+
+[node name="RockDome" parent="." instance=ExtResource("8_h7gi2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42912, -4.76837e-07, -69.9681)
