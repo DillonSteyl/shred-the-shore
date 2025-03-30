@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="godot.cookie"
+config/name="Shred the Shore"
 run/main_scene="uid://b3gv7jt4uspgh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
