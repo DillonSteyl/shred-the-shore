@@ -8,7 +8,7 @@
 radius = 0.962996
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ictms"]
-size = Vector3(4.76978, 2.63603, 4.0166)
+size = Vector3(2.21509, 2.29848, 2.48633)
 
 [node name="BeachBallDestructible" type="Node3D"]
 
@@ -29,5 +29,5 @@ rigidbody = NodePath("../RigidBody3D")
 metadata/_custom_type_script = "uid://ca21jni7bsdxf"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DestructibleDetectionArea"]
-transform = Transform3D(1.02427, 0, 0, 0, 1.02427, 0, 0, 0, 1.02427, -4.93526e-05, 1.1142, 0)
+transform = Transform3D(1.02427, 0, 0, 0, 1.02427, 0, 0, 0, 1.02427, -4.93526e-05, 0.941331, 0)
 shape = SubResource("BoxShape3D_ictms")

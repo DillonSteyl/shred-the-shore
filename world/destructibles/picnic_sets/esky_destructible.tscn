@@ -8,7 +8,7 @@
 size = Vector3(1.06775, 1.078, 1.82422)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ictms"]
-size = Vector3(2.45322, 1.52058, 1.41895)
+size = Vector3(1.56152, 1.52058, 2.54102)
 
 [node name="EskyDestructible" type="Node3D"]
 
