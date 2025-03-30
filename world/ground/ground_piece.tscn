@@ -17,7 +17,6 @@ data = PackedVector3Array(150, 0, 300, -150, 0, 300, 150, 0, -300, -150, 0, 300,
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_dk3bq")
-skeleton = NodePath("../WorldEnvironment")
 surface_material_override/0 = ExtResource("1_p686j")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
