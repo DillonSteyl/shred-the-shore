@@ -6,8 +6,11 @@ signal bracket_changed(new_bracket: StyleBracket)
 
 const MIN_STYLE: float = 0.0
 const MAX_STYLE: float = 100.0
-const STYLE_DECAY_DELAY: float = 1.0
+const START_STYLE_DECAY_DELAY: float = 1.0
+const END_STYLE_DECAY_DELAY: float = 0.4
 const STYLE_DECAY_PER_SECOND: float = 10.0
+
+var style_decay_delay: float = START_STYLE_DECAY_DELAY
 
 
 class StyleBracket:
@@ -58,11 +61,16 @@ func _ready() -> void:
 
 	add_child(style_decay_timer)
 	style_decay_timer.one_shot = true
-	style_decay_timer.wait_time = STYLE_DECAY_DELAY
+	style_decay_timer.wait_time = style_decay_delay
 	style_decay_timer.start()
 
 	style_changed.emit(style)
 	bracket_changed.emit(current_bracket)
+
+	var tween = get_tree().create_tween()
+	tween.tween_property(
+		self, "style_decay_delay", END_STYLE_DECAY_DELAY, Constants.DIFFICULTY_INCREASE_DURATION
+	)
 
 
 func get_current_bracket() -> StyleBracket:
@@ -81,6 +89,7 @@ func _physics_process(delta: float) -> void:
 func _set_style(new_style: float):
 	if new_style > style:
 		# style increased - delay the decay
+		style_decay_timer.wait_time = style_decay_delay
 		style_decay_timer.start()
 
 	style = clamp(new_style, MIN_STYLE, MAX_STYLE)

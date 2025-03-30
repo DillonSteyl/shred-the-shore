@@ -5,7 +5,6 @@ const VISUAL_ROTATION: float = deg_to_rad(25.0)
 const VISUAL_TILT: float = deg_to_rad(16.0)
 const MAX_STEER_ANGLE: float = deg_to_rad(55.0)
 const BOOST_MULTIPLIER: float = 1.0
-const SPEED_INCREASE_DURATION: float = 120.0
 
 @export var min_speed: float = 40.0
 @export var max_speed: float = 80.0
@@ -46,7 +45,7 @@ func _ready() -> void:
 	boost_timer.one_shot = true
 
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "base_speed", max_speed, SPEED_INCREASE_DURATION)
+	tween.tween_property(self, "base_speed", max_speed, Constants.DIFFICULTY_INCREASE_DURATION)
 
 
 func _physics_process(delta: float) -> void:

@@ -3,7 +3,6 @@ extends Node3D
 
 const MIN_DISTANCE_COVERED: float = 250.0
 const RAYCAST_ORIGIN_Y: float = 5.0
-const FREQUENCY_CHANGE_DURATION: float = 120.0
 
 @export var prop_scenes: Array[PackedScene]
 @export var player: Player
@@ -27,8 +26,12 @@ const FREQUENCY_CHANGE_DURATION: float = 120.0
 
 func _ready() -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "min_distance", end_min_distance, FREQUENCY_CHANGE_DURATION)
-	tween.tween_property(self, "max_distance", end_max_distance, FREQUENCY_CHANGE_DURATION)
+	tween.tween_property(
+		self, "min_distance", end_min_distance, Constants.DIFFICULTY_INCREASE_DURATION
+	)
+	tween.tween_property(
+		self, "max_distance", end_max_distance, Constants.DIFFICULTY_INCREASE_DURATION
+	)
 
 	spawn_new_prop()
 	while _should_spawn():
