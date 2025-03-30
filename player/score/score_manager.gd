@@ -5,7 +5,7 @@ signal score_changed(new_score: int)
 signal score_event_triggered(name: String, score: int, multiplier: float)
 
 const POINTS_TO_STYLE_MODIFIER: float = 0.05
-const JUMP_POINTS_PER_SECOND: float = 100
+const JUMP_POINTS_PER_SECOND: float = 60
 
 @onready var score: int = 0:
 	set = _set_score
