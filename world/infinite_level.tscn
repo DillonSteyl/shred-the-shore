@@ -76,6 +76,19 @@ metadata/_custom_type_script = "uid://85ntwh888c0s"
 [node name="GroundPiece" parent="GroundPlacer" instance=ExtResource("11_jrloa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.15, 0, 0, 39.7276)
 
+[node name="DestructiblePlacer" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("8_gqrty")
+min_distance_covered = 200.0
+prop_scenes = Array[PackedScene]([ExtResource("14_q7jgh"), ExtResource("15_omd5n")])
+player = NodePath("../Player")
+starting_offset = 100.0
+start_min_distance = 40.0
+start_max_distance = 60.0
+end_min_distance = 40.0
+end_max_distance = 60.0
+x_variation = 35.0
+metadata/_custom_type_script = "uid://85ntwh888c0s"
+
 [node name="RampPlacer" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 process_priority = 1
 process_physics_priority = 1
@@ -83,6 +96,7 @@ script = ExtResource("8_gqrty")
 min_distance_covered = 400.0
 prop_scenes = Array[PackedScene]([ExtResource("9_4pska"), ExtResource("9_4pska"), ExtResource("10_4pska")])
 player = NodePath("../Player")
+starting_offset = 300.0
 start_min_distance = 80.0
 start_max_distance = 110.0
 end_min_distance = 160.0
@@ -95,23 +109,10 @@ script = ExtResource("8_gqrty")
 min_distance_covered = 200.0
 prop_scenes = Array[PackedScene]([ExtResource("11_drtfs"), ExtResource("12_4pska"), ExtResource("13_q7jgh")])
 player = NodePath("../Player")
-starting_offset = 100.0
+starting_offset = 800.0
 start_min_distance = 10.0
 start_max_distance = 15.0
 end_min_distance = 3.0
 end_max_distance = 5.0
 randomize_y_rotation = true
-metadata/_custom_type_script = "uid://85ntwh888c0s"
-
-[node name="DestructiblePlacer" type="Node3D" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("8_gqrty")
-min_distance_covered = 200.0
-prop_scenes = Array[PackedScene]([ExtResource("14_q7jgh"), ExtResource("15_omd5n")])
-player = NodePath("../Player")
-starting_offset = 20.0
-start_min_distance = 40.0
-start_max_distance = 60.0
-end_min_distance = 40.0
-end_max_distance = 60.0
-x_variation = 35.0
 metadata/_custom_type_script = "uid://85ntwh888c0s"

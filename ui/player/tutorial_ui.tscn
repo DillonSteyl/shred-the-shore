@@ -1,11 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://umh8le0drjhi"]
+[gd_scene load_steps=5 format=3 uid="uid://me8ik5ouv1fs"]
 
-[ext_resource type="Script" uid="uid://ui8eg11lbj73" path="res://ui/player/player_ui.gd" id="1_cfom6"]
-[ext_resource type="Theme" uid="uid://daokerupce7cs" path="res://ui/ui_theme.tres" id="1_nwuxy"]
-[ext_resource type="PackedScene" uid="uid://42py47hjlyp" path="res://ui/player/score_event_ui.tscn" id="2_5myn5"]
-[ext_resource type="Script" uid="uid://da4tyk6crw5dg" path="res://ui/player/hud.gd" id="3_2gtaa"]
-[ext_resource type="PackedScene" uid="uid://d2sdkxr55tup7" path="res://ui/player/style_meter_ui.tscn" id="3_g5tbx"]
-[ext_resource type="PackedScene" uid="uid://d2t6i6sn6u21y" path="res://ui/game_over/game_over_ui.tscn" id="4_7n80m"]
+[ext_resource type="Theme" uid="uid://daokerupce7cs" path="res://ui/ui_theme.tres" id="1_8aktr"]
 
 [sub_resource type="Animation" id="Animation_8aktr"]
 resource_name = "tutorial"
@@ -189,58 +184,17 @@ _data = {
 &"tutorial": SubResource("Animation_8aktr")
 }
 
-[node name="PlayerUI" type="Control"]
+[node name="Tutorial" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_nwuxy")
-script = ExtResource("1_cfom6")
+theme = ExtResource("1_8aktr")
 
-[node name="HUD" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_2gtaa")
-
-[node name="Label" type="Label" parent="HUD"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 164.0
-offset_bottom = 70.0
-theme_override_font_sizes/font_size = 48
-text = "Score:"
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="ScoreLabel" type="Label" parent="HUD"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-offset_top = 61.0
-offset_right = 159.0
-offset_bottom = 123.0
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-
-[node name="ScoreEvent" parent="HUD" instance=ExtResource("2_5myn5")]
-unique_name_in_owner = true
-layout_mode = 1
-offset_top = -100.0
-offset_bottom = 100.0
-
-[node name="StyleMeterUI" parent="HUD" instance=ExtResource("3_g5tbx")]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-
-[node name="Label1" type="RichTextLabel" parent="HUD"]
+[node name="Label1" type="RichTextLabel" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 12
@@ -263,7 +217,8 @@ theme_override_font_sizes/bold_font_size = 48
 text = "Use [A] and [D] to steer"
 horizontal_alignment = 1
 
-[node name="Label2" type="RichTextLabel" parent="HUD"]
+[node name="Label2" type="RichTextLabel" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 12
@@ -286,7 +241,8 @@ theme_override_font_sizes/bold_font_size = 48
 text = "Hit beach supplies to gain points"
 horizontal_alignment = 1
 
-[node name="Label3" type="RichTextLabel" parent="HUD"]
+[node name="Label3" type="RichTextLabel" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 12
@@ -309,7 +265,7 @@ theme_override_font_sizes/bold_font_size = 48
 text = "Press [space] at the top of ramps to do tricks"
 horizontal_alignment = 1
 
-[node name="Label4" type="RichTextLabel" parent="HUD"]
+[node name="Label4" type="RichTextLabel" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 12
@@ -333,11 +289,7 @@ bbcode_enabled = true
 text = "Connect your stunts to become [wave amp=60.0 freq=6.0 connected=1]Astonishing![/wave]"
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_cgwek")
 }
-
-[node name="GameOverUI" parent="." instance=ExtResource("4_7n80m")]
-visible = false
-layout_mode = 1
