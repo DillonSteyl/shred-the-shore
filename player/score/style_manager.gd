@@ -9,7 +9,7 @@ const MAX_STYLE: float = 100.0
 const START_STYLE_DECAY_DELAY: float = 1.0
 const END_STYLE_DECAY_DELAY: float = 0.4
 const START_DECAY_PER_SECOND: float = 8.0
-const END_DECAY_PER_SECOND: float = 18.0
+const END_DECAY_PER_SECOND: float = 12.0
 
 var style_decay_delay: float = START_STYLE_DECAY_DELAY
 var decay_per_second: float = START_DECAY_PER_SECOND
