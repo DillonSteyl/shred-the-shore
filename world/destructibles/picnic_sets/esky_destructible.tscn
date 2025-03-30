@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://db40y1svp0cyy"]
+
+[ext_resource type="PackedScene" uid="uid://dxhwsa8xqfc23" path="res://common/assets/models/SM_Esky.fbx" id="1_7xwgk"]
+[ext_resource type="Script" uid="uid://ca21jni7bsdxf" path="res://world/destructibles/destructible_detection_area.gd" id="2_6w748"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6w748"]
+size = Vector3(1.06775, 1.078, 1.82422)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ictms"]
+size = Vector3(2.45322, 1.52058, 1.41895)
+
+[node name="EskyDestructible" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="SM_Esky" parent="RigidBody3D" instance=ExtResource("1_7xwgk")]
+transform = Transform3D(2.69197, 0, 0, 0, 2.69197, 0, 0, 0, 2.69197, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148804, 0.515564, 0)
+shape = SubResource("BoxShape3D_6w748")
+
+[node name="DestructibleDetectionArea" type="Area3D" parent="." node_paths=PackedStringArray("rigidbody")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_6w748")
+rigidbody = NodePath("../RigidBody3D")
+metadata/_custom_type_script = "uid://ca21jni7bsdxf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestructibleDetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111313, 0.682716, 0)
+shape = SubResource("BoxShape3D_ictms")

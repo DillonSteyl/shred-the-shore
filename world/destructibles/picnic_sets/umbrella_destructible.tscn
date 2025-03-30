@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg4vqrgc66xrk"]
+
+[ext_resource type="PackedScene" uid="uid://bludxeegk7fm3" path="res://common/assets/models/SM_Umbrella_Open.fbx" id="1_2n8uh"]
+[ext_resource type="Script" uid="uid://ca21jni7bsdxf" path="res://world/destructibles/destructible_detection_area.gd" id="2_evbyl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6w748"]
+size = Vector3(2.14, 9.425, 1.78711)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2n8uh"]
+size = Vector3(14.0918, 3.27597, 13.8596)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ictms"]
+size = Vector3(14.947, 11.0617, 16.6953)
+
+[node name="UmbrellaDestructible" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="MeshSlot" type="Node3D" parent="RigidBody3D"]
+transform = Transform3D(5.24892, 0, 0, 0, 5.24892, 0, 0, 0, 5.24892, 0, 0, 0)
+
+[node name="SM_Umbrella_Open" parent="RigidBody3D/MeshSlot" instance=ExtResource("1_2n8uh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0590261, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101613, 3.88902, 0)
+shape = SubResource("BoxShape3D_6w748")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101613, 7.29242, 0)
+shape = SubResource("BoxShape3D_2n8uh")
+
+[node name="DestructibleDetectionArea" type="Area3D" parent="." node_paths=PackedStringArray("rigidbody")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_evbyl")
+rigidbody = NodePath("../RigidBody3D")
+metadata/_custom_type_script = "uid://ca21jni7bsdxf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestructibleDetectionArea"]
+transform = Transform3D(1.02427, 0, 0, 0, 1.02427, 0, 0, 0, 1.02427, -4.93526e-05, 3.72754, 0)
+shape = SubResource("BoxShape3D_ictms")

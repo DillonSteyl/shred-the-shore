@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c43oga216sc22"]
+[gd_scene load_steps=11 format=3 uid="uid://c43oga216sc22"]
 
 [ext_resource type="Environment" uid="uid://bis1xkynm587" path="res://common/world_environment.tres" id="1_5us1g"]
 [ext_resource type="PackedScene" uid="uid://bbxg8r53rxrsm" path="res://world/ground/ground_piece.tscn" id="1_jcmsv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dxhwsa8xqfc23" path="res://common/assets/models/SM_Esky.fbx" id="6_54hql"]
 [ext_resource type="PackedScene" uid="uid://cksammwmn0g27" path="res://common/assets/models/SM_Surfboard_03.fbx" id="8_7vo7t"]
 [ext_resource type="PackedScene" uid="uid://ddo4i04btc7b3" path="res://common/assets/models/SM_Surfboard_11.fbx" id="8_p1wiv"]
+[ext_resource type="PackedScene" uid="uid://caywjxn6t1a7h" path="res://common/assets/models/SM_Umbrella_Closed.fbx" id="9_7vo7t"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_54hql"]
 material = ExtResource("3_c233w")
@@ -51,3 +52,6 @@ transform = Transform3D(0.898267, -0.0352878, 1.08547, 0.00876569, 1.40883, 0.03
 
 [node name="SM_Surfboard_11" parent="." instance=ExtResource("8_p1wiv")]
 transform = Transform3D(1.12481, 0, 0.762643, 0, 1.35898, 0, -0.762643, 0, 1.12481, 0.136982, -0.2538, -1.36021)
+
+[node name="SM_Umbrella_Closed" parent="." instance=ExtResource("9_7vo7t")]
+transform = Transform3D(1.20887, 0, 0, 0, 1.20887, 0, 0, 0, 1.20887, -2.04191, 2.38419e-07, -5.47406)

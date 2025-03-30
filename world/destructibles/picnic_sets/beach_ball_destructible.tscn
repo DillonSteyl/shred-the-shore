@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dte55psy10naf"]
+
+[ext_resource type="PackedScene" uid="uid://d2y11odh33sx5" path="res://common/assets/models/SM_Beachball.fbx" id="1_0klli"]
+[ext_resource type="Script" uid="uid://ca21jni7bsdxf" path="res://world/destructibles/destructible_detection_area.gd" id="2_pq50x"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0klli"]
+radius = 0.962996
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ictms"]
+size = Vector3(4.76978, 2.63603, 4.0166)
+
+[node name="BeachBallDestructible" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="SM_Beachball" parent="RigidBody3D" instance=ExtResource("1_0klli")]
+transform = Transform3D(5.24892, 0, 0, 0, 5.24892, 0, 0, 0, 5.24892, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.903373, 0)
+shape = SubResource("SphereShape3D_0klli")
+
+[node name="DestructibleDetectionArea" type="Area3D" parent="." node_paths=PackedStringArray("rigidbody")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_pq50x")
+rigidbody = NodePath("../RigidBody3D")
+metadata/_custom_type_script = "uid://ca21jni7bsdxf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestructibleDetectionArea"]
+transform = Transform3D(1.02427, 0, 0, 0, 1.02427, 0, 0, 0, 1.02427, -4.93526e-05, 1.1142, 0)
+shape = SubResource("BoxShape3D_ictms")

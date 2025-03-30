@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs7frpeerywuq"]
+
+[ext_resource type="PackedScene" uid="uid://db40y1svp0cyy" path="res://world/destructibles/picnic_sets/esky_destructible.tscn" id="1_maxnd"]
+[ext_resource type="PackedScene" uid="uid://bg4vqrgc66xrk" path="res://world/destructibles/picnic_sets/umbrella_destructible.tscn" id="2_faqmh"]
+[ext_resource type="PackedScene" uid="uid://dte55psy10naf" path="res://world/destructibles/picnic_sets/beach_ball_destructible.tscn" id="3_oxtrj"]
+
+[node name="PicnicSet1" type="Node3D"]
+
+[node name="EskyDestructible" parent="." instance=ExtResource("1_maxnd")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.415282, 0, 0.207479)
+
+[node name="UmbrellaDestructible" parent="." instance=ExtResource("2_faqmh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38933, 0, -2.04601)
+
+[node name="BeachBallDestructible" parent="." instance=ExtResource("3_oxtrj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93314, 0, 0.55674)
