@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dte55psy10naf"]
+[gd_scene load_steps=6 format=3 uid="uid://dte55psy10naf"]
 
 [ext_resource type="PackedScene" uid="uid://d2y11odh33sx5" path="res://common/assets/models/SM_Beachball.fbx" id="1_0klli"]
+[ext_resource type="PackedScene" uid="uid://8tml27qnmfpo" path="res://world/destructibles/destructible_rigidbody.tscn" id="1_pq50x"]
 [ext_resource type="Script" uid="uid://ca21jni7bsdxf" path="res://world/destructibles/destructible_detection_area.gd" id="2_pq50x"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0klli"]
@@ -11,9 +12,7 @@ size = Vector3(4.76978, 2.63603, 4.0166)
 
 [node name="BeachBallDestructible" type="Node3D"]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 0
-collision_mask = 3
+[node name="RigidBody3D" parent="." instance=ExtResource("1_pq50x")]
 
 [node name="SM_Beachball" parent="RigidBody3D" instance=ExtResource("1_0klli")]
 transform = Transform3D(5.24892, 0, 0, 0, 5.24892, 0, 0, 0, 5.24892, 0, 0, 0)

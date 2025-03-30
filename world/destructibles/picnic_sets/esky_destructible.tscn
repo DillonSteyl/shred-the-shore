@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://db40y1svp0cyy"]
+[gd_scene load_steps=6 format=3 uid="uid://db40y1svp0cyy"]
 
 [ext_resource type="PackedScene" uid="uid://dxhwsa8xqfc23" path="res://common/assets/models/SM_Esky.fbx" id="1_7xwgk"]
+[ext_resource type="PackedScene" uid="uid://8tml27qnmfpo" path="res://world/destructibles/destructible_rigidbody.tscn" id="1_ictms"]
 [ext_resource type="Script" uid="uid://ca21jni7bsdxf" path="res://world/destructibles/destructible_detection_area.gd" id="2_6w748"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6w748"]
@@ -11,9 +12,7 @@ size = Vector3(2.45322, 1.52058, 1.41895)
 
 [node name="EskyDestructible" type="Node3D"]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 0
-collision_mask = 3
+[node name="RigidBody3D" parent="." instance=ExtResource("1_ictms")]
 
 [node name="SM_Esky" parent="RigidBody3D" instance=ExtResource("1_7xwgk")]
 transform = Transform3D(2.69197, 0, 0, 0, 2.69197, 0, 0, 0, 2.69197, 0, 0, 0)

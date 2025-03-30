@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg4vqrgc66xrk"]
+[gd_scene load_steps=7 format=3 uid="uid://bg4vqrgc66xrk"]
 
 [ext_resource type="PackedScene" uid="uid://bludxeegk7fm3" path="res://common/assets/models/SM_Umbrella_Open.fbx" id="1_2n8uh"]
+[ext_resource type="PackedScene" uid="uid://8tml27qnmfpo" path="res://world/destructibles/destructible_rigidbody.tscn" id="1_evbyl"]
 [ext_resource type="Script" uid="uid://ca21jni7bsdxf" path="res://world/destructibles/destructible_detection_area.gd" id="2_evbyl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6w748"]
@@ -14,9 +15,7 @@ size = Vector3(14.947, 11.0617, 16.6953)
 
 [node name="UmbrellaDestructible" type="Node3D"]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 0
-collision_mask = 3
+[node name="RigidBody3D" parent="." instance=ExtResource("1_evbyl")]
 
 [node name="MeshSlot" type="Node3D" parent="RigidBody3D"]
 transform = Transform3D(5.24892, 0, 0, 0, 5.24892, 0, 0, 0, 5.24892, 0, 0, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4tjntcnvs7af"]
+[gd_scene load_steps=18 format=3 uid="uid://4tjntcnvs7af"]
 
 [ext_resource type="PackedScene" uid="uid://c7l27nexw1lq5" path="res://common/assets/models/SM_Surfboard_01.fbx" id="1_a0ge5"]
 [ext_resource type="Script" uid="uid://ct5no0so5r7w5" path="res://world/destructibles/surfboards/surfboard_destructible.gd" id="1_k465o"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://vsanwlc25duy" path="res://common/assets/models/SM_Surfboard_10.fbx" id="11_xlug4"]
 [ext_resource type="PackedScene" uid="uid://ddo4i04btc7b3" path="res://common/assets/models/SM_Surfboard_11.fbx" id="12_50gev"]
 [ext_resource type="PackedScene" uid="uid://j46dkmbeumvj" path="res://common/assets/models/SM_Surfboard_12.fbx" id="13_qaqkp"]
+[ext_resource type="PackedScene" uid="uid://8tml27qnmfpo" path="res://world/destructibles/destructible_rigidbody.tscn" id="14_shlpu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nnvl8"]
 size = Vector3(1.03296, 3.84036, 0.181641)
@@ -25,9 +26,7 @@ size = Vector3(1.72949, 4.09229, 1.40649)
 script = ExtResource("1_k465o")
 mesh_choices = Array[PackedScene]([ExtResource("1_a0ge5"), ExtResource("3_k6hbs"), ExtResource("4_shlpu"), ExtResource("5_ofdvx"), ExtResource("6_7h18q"), ExtResource("7_5oung"), ExtResource("8_ge88x"), ExtResource("9_qj1gx"), ExtResource("10_bfdvb"), ExtResource("11_xlug4"), ExtResource("12_50gev"), ExtResource("13_qaqkp")])
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 0
-collision_mask = 3
+[node name="RigidBody3D" parent="." instance=ExtResource("14_shlpu")]
 
 [node name="MeshSlot" type="Node3D" parent="RigidBody3D"]
 transform = Transform3D(-1.04305e-07, 0, -2.38622, 0, 2.38622, 0, 2.38622, 0, -1.04305e-07, 0, -0.735612, 0)
