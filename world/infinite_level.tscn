@@ -32,9 +32,10 @@ script = ExtResource("1_gqrty")
 environment = ExtResource("1_a71je")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.163205, -0.177679, 0.970461, 0.282638, 0.950842, 0.126554, -0.94524, 0.253635, 0.205401, 0, 4.36424, 8.4208)
+transform = Transform3D(-0.439494, -0.221421, 0.870528, 0.153934, 0.936239, 0.315849, -0.884957, 0.272818, -0.377387, 0, 4.36424, 8.4208)
 light_color = Color(0.833661, 0.673434, 0.53449, 1)
 shadow_enabled = true
+sky_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("3_n1fx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51716, 0)
