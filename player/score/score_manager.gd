@@ -18,7 +18,7 @@ func add_jump(duration: float):
 
 
 func collide():
-	_add_points(2, "Destruction!")
+	_add_points(10, "Destruction!")
 
 
 func trick():
